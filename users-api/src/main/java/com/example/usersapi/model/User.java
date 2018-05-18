@@ -1,6 +1,10 @@
 package com.example.usersapi.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.*;
+import org.hibernate.validator.constraints.Length;
+import org.hibernate.validator.constraints.NotBlank;
 
 import javax.persistence.*;
 
@@ -13,17 +17,31 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "USERNAME")
+    @NotBlank
+    @Column(name = "USERNAME", unique = true, length = 100)
     private String username;
 
-    @Column(name = "FIRST_NAME")
+    @NotBlank
+    @Column(name = "FIRST_NAME", length = 100)
     private String firstName;
 
-    @Column(name = "LAST_NAME")
+    @NotBlank
+    @Column(name = "LAST_NAME", length = 100)
     private String lastName;
 
     @Column(name = "PASSWORD")
+    @Length(min = 6, max = 72)
     private String password;
+
+    @JsonIgnore
+    public String getPassword() {
+        return this.password;
+    }
+
+    public void setPassword(String newPassword) {
+        this.password = newPassword;
+    }
+
 
     public User(String username, String firstName, String lastName, String password) {
         this.username = username;
@@ -31,4 +49,5 @@ public class User {
         this.lastName = lastName;
         this.password = password;
     }
+
 }
