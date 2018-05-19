@@ -1,7 +1,6 @@
 package com.example.usersapi.controller;
 
-import com.example.usersapi.model.LoginRequest;
-import com.example.usersapi.model.SignupRequest;
+import com.example.usersapi.model.SessionRequest;
 import com.example.usersapi.model.User;
 import com.example.usersapi.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,7 +24,7 @@ public class UsersController {
     }
 
     @PostMapping("/")
-    public User createNewUser(@RequestBody SignupRequest signupRequest) {
+    public User createNewUser(@RequestBody SessionRequest signupRequest) {
         String hashedPassword = BCrypt.hashpw(signupRequest.getPassword(), BCrypt.gensalt());
         User newUser = new User(
                 signupRequest.getUsername(),
@@ -38,7 +37,7 @@ public class UsersController {
     }
 
     @PostMapping("/login")
-    public User loginUser(@RequestBody LoginRequest loginRequest) throws AccessDeniedException {
+    public User loginUser(@RequestBody SessionRequest loginRequest) throws AccessDeniedException {
         User foundUser = userRepository.findByUsername(loginRequest.getUsername());
 
         if (foundUser == null) {

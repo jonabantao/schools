@@ -9,7 +9,7 @@ import lombok.Setter;
 @NoArgsConstructor
 @Getter
 @Setter
-public class SignupRequest {
+public class SessionRequest {
     private String username;
     private String firstName;
     private String lastName;
