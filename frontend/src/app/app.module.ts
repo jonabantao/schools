@@ -5,6 +5,7 @@ import { AppComponent } from './app.component';
 import { UsersModule } from './users/users.module';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { AuthModule } from './auth/auth.module';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { NavbarComponent } from './navbar/navbar.component';
   ],
   imports: [
     BrowserModule,
-    UsersModule
+    UsersModule,
+    AuthModule
   ],
   providers: [],
   bootstrap: [AppComponent]
