@@ -1,3 +1,15 @@
-<p>
-  navbar works!
-</p>
+<mat-toolbar color="primary" class="mat-elevation-z4">
+  <a routerLink="/">
+    <span>Housing</span>
+  </a>
+  <span class="navbar-filler"></span>
+  <div *ngIf="!authService.isLoggedIn()">
+    <a routerLink="/login">
+      <button mat-button>Login</button>
+    </a>
+    <a routerLink="/signup">
+      <button mat-button>Sign Up</button>
+    </a>
+  </div>
+  <button *ngIf="authService.isLoggedIn()" (click)="logout()" mat-button>Log Out</button>
+</mat-toolbar>
