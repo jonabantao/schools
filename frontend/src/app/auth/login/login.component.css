@@ -1,0 +1,16 @@
+.session-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 10%;
+}
+
+.session-container {
+  display: flex;
+  flex-direction: column;
+  padding: 30px;
+  width: 300px;
+}
+
+.session-container>* {
+  width: 100%;
+}

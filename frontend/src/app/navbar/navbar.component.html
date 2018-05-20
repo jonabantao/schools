@@ -11,5 +11,9 @@
       <button mat-button>Sign Up</button>
     </a>
   </div>
-  <button *ngIf="authService.isLoggedIn()" (click)="logout()" mat-button>Log Out</button>
+  <button *ngIf="authService.isLoggedIn()" mat-button [matMenuTriggerFor]="menu">Menu</button>
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item>Manage Users</button>
+    <button mat-menu-item (click)="logout()">Logout</button>
+  </mat-menu>
 </mat-toolbar>

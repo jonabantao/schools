@@ -12,6 +12,7 @@ import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms'
 })
 export class SignupComponent implements OnInit {
   sessionForm: FormGroup;
+  hide: boolean;
 
   constructor(
     private router: Router,
@@ -20,6 +21,8 @@ export class SignupComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.hide = true;
+
     this.sessionForm = this.formBuilder.group({
       username: ['', Validators.required],
       firstName: ['', Validators.required],

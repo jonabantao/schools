@@ -13,12 +13,14 @@ import { AuthModule } from './auth/auth.module';
 import { NavbarComponent } from './navbar/navbar.component';
 import { MaterialModule } from './/material.module';
 import { AppRoutingModule } from './app-routing.module';
+import { LandingPageComponent } from './landing-page/landing-page.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     DashboardComponent,
     NavbarComponent,
+    LandingPageComponent,
   ],
   imports: [
     BrowserModule,
