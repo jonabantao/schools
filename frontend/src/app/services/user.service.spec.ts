@@ -13,13 +13,8 @@ describe('UserService', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [],
-      imports: [
-        HttpClientTestingModule
-      ],
-      providers: [
-        UserService
-      ]
+      imports: [HttpClientTestingModule],
+      providers: [UserService]
     })
       .compileComponents();
 
