@@ -59,8 +59,25 @@ describe('AuthService', () => {
       });
       service.logoutUser();
 
-      expect(funcToCall).toHaveBeenCalled();
       expect(store).toEqual({});
+    });
+  });
+
+  describe('storeUserInLocalStorage()', () => {
+    it('should store user in localStorage', () => {
+      service.storeUserInLocalStorage(dummyUser);
+
+      expect(JSON.parse(store['user'])).toEqual(dummyUser);
+    });
+  });
+
+  describe('retrieveUserInLocalStorage()', () => {
+    it('should return the user\'s information', () => {
+      store['user'] = JSON.stringify(dummyUser);
+
+      const returnValue = service.retrieveUserInLocalStorage();
+
+      expect(returnValue).toEqual(dummyUser);
     });
   });
 });
