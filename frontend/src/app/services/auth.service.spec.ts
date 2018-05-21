@@ -1,4 +1,5 @@
-import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { SessionForm } from './../models/session-form.model';
+import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 import { TestBed, inject } from '@angular/core/testing';
 
 import { AuthService } from './auth.service';
@@ -6,21 +7,34 @@ import { User } from '../models/user.model';
 
 describe('AuthService', () => {
   let service: AuthService;
-  let dummyUser: User;
+  let httpMock: HttpTestingController;
+  let dummyUser: any;
+  let dummyForm: SessionForm;
   let store = {};
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [HttpClientTestingModule],
+      imports: [
+        HttpClientTestingModule,
+      ],
       providers: [AuthService]
     });
 
     service = TestBed.get(AuthService);
+    httpMock = TestBed.get(HttpTestingController);
+
     dummyUser = {
       id: 1,
       username: 'tester',
       firstName: 'Firstname',
       lastName: 'Lastname'
+    };
+
+    dummyForm = {
+      username: 'tester',
+      firstName: 'Firstname',
+      lastName: 'Lastname',
+      password: 'testing',
     };
 
     // https://stackoverflow.com/questions/11485420/how-to-mock-localstorage-in-javascript-unit-tests
@@ -35,6 +49,21 @@ describe('AuthService', () => {
 
   afterEach(() => {
     store = {};
+  });
+
+  describe('signupUser()', () => {
+    it('should successfully hit endpoint and return user', () => {
+      service.signupUser(dummyForm)
+        .subscribe(res => {
+          expect(res).toEqual(dummyUser);
+        });
+
+      const mock = httpMock.expectOne('/api/users/');
+      expect(mock.request.method).toBe('POST');
+
+      mock.flush(dummyUser);
+      httpMock.verify();
+    });
   });
 
 
