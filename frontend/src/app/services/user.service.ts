@@ -16,7 +16,15 @@ export class UserService {
     return this.http.get<User[]>(`${USER_BASE_URL}`);
   }
 
+  getUser(userId: number): Observable<User> {
+    return this.http.get<User>(`${USER_BASE_URL}${userId}`);
+  }
+
   deleteUser(userId: number): Observable<Object> {
     return this.http.delete(`${USER_BASE_URL}${userId}`);
+  }
+
+  updateUser(user: User): Observable<User> {
+    return this.http.patch<User>(`${USER_BASE_URL}${user.id}`, user);
   }
 }

@@ -1,0 +1,39 @@
+INSERT INTO USERS
+  (USERNAME, FIRST_NAME, LAST_NAME, PASSWORD)
+VALUES
+  (
+    'bsmith',
+    'Bob',
+    'Smith',
+    '$2y$12$4rmtdb2OLCfltde85tNHheIM0yw.RfkO6DHaP.uA6GWrSPGYLVpKm'
+  ),
+  (
+    'jdoe',
+    'John',
+    'Doe',
+    '$2y$12$4rmtdb2OLCfltde85tNHheIM0yw.RfkO6DHaP.uA6GWrSPGYLVpKm'
+  ),
+  (
+    'jilldoe',
+    'Jill',
+    'Doe',
+    '$2y$12$4rmtdb2OLCfltde85tNHheIM0yw.RfkO6DHaP.uA6GWrSPGYLVpKm'
+  ),
+  (
+    'bestcaptain',
+    'Zack',
+    'Smith',
+    '$2y$12$4rmtdb2OLCfltde85tNHheIM0yw.RfkO6DHaP.uA6GWrSPGYLVpKm'
+  ),
+  (
+    'dsadasdsa',
+    'Bob',
+    'Smith',
+    '$2y$12$4rmtdb2OLCfltde85tNHheIM0yw.RfkO6DHaP.uA6GWrSPGYLVpKm'
+  ),
+  (
+    'bsmidddsadsth',
+    'Bob',
+    'Smith',
+    '$2y$12$4rmtdb2OLCfltde85tNHheIM0yw.RfkO6DHaP.uA6GWrSPGYLVpKm'
+  );

@@ -33,4 +33,9 @@ export class ManageUsersComponent implements OnInit {
         this.getUsers();
       });
   }
+
+  updateUser(user: User): void {
+    const userToSendToServer = Object.assign({}, this.selectedUser, user);
+    console.log(userToSendToServer);
+  }
 }

@@ -1,5 +1,6 @@
 import { User } from './../../models/user.model';
 import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-manage-users-edit',
@@ -9,6 +10,8 @@ import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 export class ManageUsersEditComponent implements OnInit {
   firstAndLastName: string;
   selectedUser: User;
+  userForm: FormGroup;
+
   @Output() saved = new EventEmitter();
   @Input() set user(value: User) {
     if (value) {
@@ -16,9 +19,16 @@ export class ManageUsersEditComponent implements OnInit {
     }
 
     this.selectedUser = Object.assign({}, value);
+
+    this.userForm = this.formBuilder.group({
+      firstName: [this.selectedUser.firstName, Validators.required],
+      lastName: [this.selectedUser.lastName, Validators.required],
+    });
   }
 
-  constructor() { }
+  constructor(
+    private formBuilder: FormBuilder,
+  ) { }
 
   ngOnInit() {
   }
