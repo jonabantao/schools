@@ -1,0 +1,11 @@
+<section>
+  <app-manage-users-list
+    [users]="users"
+    (selected)="selectUser($event)"
+  >
+  </app-manage-users-list>
+  <app-manage-users-edit
+    [user]="selectedUser"
+  >
+  </app-manage-users-edit>
+</section>

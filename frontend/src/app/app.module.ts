@@ -7,13 +7,15 @@ import { LayoutModule } from '@angular/cdk/layout';
 
 import { UserService } from './services/user.service';
 import { AppComponent } from './app.component';
-import { UsersModule } from './users/users.module';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { AuthModule } from './auth/auth.module';
 import { NavbarComponent } from './navbar/navbar.component';
 import { MaterialModule } from './/material.module';
 import { AppRoutingModule } from './app-routing.module';
 import { LandingPageComponent } from './landing-page/landing-page.component';
+import { ManageUsersComponent } from './manage-users/manage-users.component';
+import { ManageUsersListComponent } from './manage-users/manage-users-list/manage-users-list.component';
+import { ManageUsersEditComponent } from './manage-users/manage-users-edit/manage-users-edit.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +23,9 @@ import { LandingPageComponent } from './landing-page/landing-page.component';
     DashboardComponent,
     NavbarComponent,
     LandingPageComponent,
+    ManageUsersComponent,
+    ManageUsersListComponent,
+    ManageUsersEditComponent,
   ],
   imports: [
     BrowserModule,
@@ -28,7 +33,6 @@ import { LandingPageComponent } from './landing-page/landing-page.component';
     FormsModule,
     HttpClientModule,
     AppRoutingModule,
-    UsersModule,
     AuthModule,
     LayoutModule,
     MaterialModule,

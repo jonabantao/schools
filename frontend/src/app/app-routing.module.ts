@@ -7,12 +7,14 @@ import { SignupComponent } from './auth/signup/signup.component';
 import { LoginComponent } from './auth/login/login.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
 import { AuthGuard } from './guards/auth.guard';
+import { ManageUsersComponent } from './manage-users/manage-users.component';
 
 const routes: Routes = [
   { path: '', component: LandingPageComponent },
   { path: 'login', component: LoginComponent },
   { path: 'signup', component: SignupComponent },
-  { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] }
+  { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
+  { path: 'manage-users', component: ManageUsersComponent, canActivate: [AuthGuard] },
 ];
 
 
