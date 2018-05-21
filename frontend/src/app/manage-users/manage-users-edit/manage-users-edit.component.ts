@@ -23,4 +23,8 @@ export class ManageUsersEditComponent implements OnInit {
   ngOnInit() {
   }
 
+  isNotEmpty(user: User): boolean {
+    return user && Object.keys(user).length > 0;
+  }
+
 }
