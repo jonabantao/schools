@@ -7,7 +7,7 @@
   <mat-card-content>
     <mat-list>
       <mat-list-item class="list-item" *ngFor="let user of users; last as last">
-        <a routerLink="['/users/user.id']">
+        <a [routerLink]="['/users', user.id]">
           <p class="subheading-1 username">
             {{ user.firstName }} {{ user.lastName }}
           </p>
