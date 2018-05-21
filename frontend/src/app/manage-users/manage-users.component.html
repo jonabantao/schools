@@ -2,6 +2,7 @@
   <app-manage-users-list
     [users]="users"
     (selected)="selectUser($event)"
+    (deleted)="deleteUser($event)"
   >
   </app-manage-users-list>
   <app-manage-users-edit

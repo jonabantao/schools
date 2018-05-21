@@ -27,6 +27,10 @@ export class ManageUsersComponent implements OnInit {
     this.selectedUser = user;
   }
 
-  deleteUser(user: User): void {
+  deleteUser(userId: number): void {
+    this.userService.deleteUser(userId)
+      .subscribe(() => {
+        this.getUsers();
+      });
   }
 }

@@ -15,7 +15,7 @@
             mode_edit
           </mat-icon>
         </button>
-        <button mat-icon-button>
+        <button (click)="deleted.emit(user.id)" mat-icon-button>
           <mat-icon>
             delete_forever
           </mat-icon>

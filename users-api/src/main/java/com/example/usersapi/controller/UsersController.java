@@ -4,6 +4,7 @@ import com.example.usersapi.model.SessionRequest;
 import com.example.usersapi.model.User;
 import com.example.usersapi.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.crypto.bcrypt.BCrypt;
 import org.springframework.web.bind.annotation.*;
@@ -51,6 +52,12 @@ public class UsersController {
         } else {
             throw new AccessDeniedException("Invalid username or password");
         }
+    }
+
+    @DeleteMapping("/{userId}")
+    public HttpStatus deleteUserById(@PathVariable long userId) throws EmptyResultDataAccessException {
+        userRepository.delete(userId);
+        return HttpStatus.OK;
     }
 
     // EXCEPTION HANDLERS
