@@ -24,6 +24,11 @@ public class UsersController {
         return userRepository.findAll();
     }
 
+    @GetMapping("/{userId}")
+    public User findUser(@PathVariable long userId) {
+        return userRepository.findOne(userId);
+    }
+
     @PostMapping("/")
     public User createNewUser(@RequestBody SessionRequest signupRequest) {
         String hashedPassword = BCrypt.hashpw(signupRequest.getPassword(), BCrypt.gensalt());

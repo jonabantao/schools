@@ -1,7 +1,7 @@
 import { User } from './../models/user.model';
 import { UserService } from './../services/user.service';
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Router, ParamMap } from '@angular/router';
 
 @Component({
   selector: 'app-users-detail',
@@ -18,9 +18,12 @@ export class UsersDetailComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    const userId = Number.parseInt(this.route.snapshot.paramMap.get('userId'), 10);
+    this.route.paramMap
+      .subscribe((paramMap: ParamMap) => {
+        const userId = parseInt(paramMap.get('userId'), 10);
 
-    this.usersService.getUser(userId)
-      .subscribe(user => this.user = user);
+        this.usersService.getUser(userId)
+          .subscribe(user => this.user = user);
+      });
   }
 }
