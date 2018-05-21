@@ -10,6 +10,7 @@ describe('AuthService', () => {
   let httpMock: HttpTestingController;
   let dummyUser: any;
   let dummyForm: SessionForm;
+  let dummyLogin: SessionForm;
   let store = {};
 
   beforeEach(() => {
@@ -30,13 +31,6 @@ describe('AuthService', () => {
       lastName: 'Lastname'
     };
 
-    dummyForm = {
-      username: 'tester',
-      firstName: 'Firstname',
-      lastName: 'Lastname',
-      password: 'testing',
-    };
-
     // https://stackoverflow.com/questions/11485420/how-to-mock-localstorage-in-javascript-unit-tests
     spyOn(window.localStorage, 'setItem').and.callFake((key, value) => {
       return store[key] = value;
@@ -53,12 +47,39 @@ describe('AuthService', () => {
 
   describe('signupUser()', () => {
     it('should successfully hit endpoint and return user', () => {
+      dummyForm = {
+        username: 'tester',
+        firstName: 'Firstname',
+        lastName: 'Lastname',
+        password: 'testing',
+      };
+
       service.signupUser(dummyForm)
         .subscribe(res => {
           expect(res).toEqual(dummyUser);
         });
 
       const mock = httpMock.expectOne('/api/users/');
+      expect(mock.request.method).toBe('POST');
+
+      mock.flush(dummyUser);
+      httpMock.verify();
+    });
+  });
+
+  describe('loginUser()', () => {
+    it('should successfully hit endpoint and return user', () => {
+      dummyLogin = {
+        username: 'tester',
+        password: 'testing',
+      };
+
+      service.loginUser(dummyForm)
+        .subscribe(res => {
+          expect(res).toEqual(dummyUser);
+        });
+
+      const mock = httpMock.expectOne('/api/users/login');
       expect(mock.request.method).toBe('POST');
 
       mock.flush(dummyUser);
