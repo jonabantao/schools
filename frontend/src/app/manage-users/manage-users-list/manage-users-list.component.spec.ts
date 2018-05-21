@@ -1,6 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ManageUsersListComponent } from './manage-users-list.component';
+import { MaterialModule } from '../../ng-material/material.module';
+import { RouterTestingModule } from '@angular/router/testing';
 
 describe('ManageUsersListComponent', () => {
   let component: ManageUsersListComponent;
@@ -8,7 +10,11 @@ describe('ManageUsersListComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ManageUsersListComponent ]
+      declarations: [ ManageUsersListComponent ],
+      imports: [
+        MaterialModule,
+        RouterTestingModule,
+      ]
     })
     .compileComponents();
   }));

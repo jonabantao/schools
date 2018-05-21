@@ -39,7 +39,7 @@ describe('UserService', () => {
           expect(res.length).toEqual(1);
         });
 
-      const mock = httpMock.expectOne('/api/users');
+      const mock = httpMock.expectOne('/api/users/');
       expect(mock.request.method).toBe('GET');
 
       mock.flush(dummyUsers);

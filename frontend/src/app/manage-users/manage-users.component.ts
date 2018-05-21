@@ -21,8 +21,11 @@ export class ManageUsersComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.currentUser = this.authService.retrieveUserInLocalStorage();
-    this.currentUserId = this.currentUser.id;
+    if (this.authService.isLoggedIn()) {
+      this.currentUser = this.authService.retrieveUserInLocalStorage();
+      this.currentUserId = this.currentUser.id;
+    }
+
     this.getUsers();
   }
 
