@@ -1,3 +1,4 @@
+import { AuthService } from './../services/auth.service';
 import { Component, OnInit } from '@angular/core';
 
 import { User } from './../models/user.model';
@@ -11,10 +12,17 @@ import { UserService } from '../services/user.service';
 export class ManageUsersComponent implements OnInit {
   users: User[];
   selectedUser: User;
+  currentUser: any;
+  currentUserId: number;
 
-  constructor(private userService: UserService) { }
+  constructor(
+    private userService: UserService,
+    private authService: AuthService,
+  ) { }
 
   ngOnInit() {
+    this.currentUser = this.authService.retrieveUserInLocalStorage();
+    this.currentUserId = this.currentUser.id;
     this.getUsers();
   }
 
@@ -36,6 +44,15 @@ export class ManageUsersComponent implements OnInit {
 
   updateUser(user: User): void {
     const userToSendToServer = Object.assign({}, this.selectedUser, user);
-    console.log(userToSendToServer);
+
+    this.userService.updateUser(userToSendToServer)
+      .subscribe(() => {
+        this.clearSelectedUser();
+        this.getUsers();
+      });
+  }
+
+  clearSelectedUser(): void {
+    this.selectedUser = null;
   }
 }

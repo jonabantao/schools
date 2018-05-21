@@ -13,6 +13,7 @@ export class ManageUsersEditComponent implements OnInit {
   userForm: FormGroup;
 
   @Output() saved = new EventEmitter();
+  @Output() cancelled = new EventEmitter();
   @Input() set user(value: User) {
     if (value) {
       this.firstAndLastName = `${value.firstName} ${value.lastName}`;

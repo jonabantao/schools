@@ -10,6 +10,7 @@ import { User } from './../../models/user.model';
 })
 export class ManageUsersListComponent {
   @Input() users: User[];
+  @Input() currentUserId: number;
   @Output() selected = new EventEmitter();
   @Output() deleted = new EventEmitter();
 

@@ -21,19 +21,19 @@ VALUES
   ),
   (
     'bestcaptain',
-    'Zack',
-    'Smith',
+    'Zapp',
+    'Brannigan',
     '$2y$12$4rmtdb2OLCfltde85tNHheIM0yw.RfkO6DHaP.uA6GWrSPGYLVpKm'
   ),
   (
-    'dsadasdsa',
-    'Bob',
-    'Smith',
+    'terribadleader',
+    'Jon',
+    'Snow',
     '$2y$12$4rmtdb2OLCfltde85tNHheIM0yw.RfkO6DHaP.uA6GWrSPGYLVpKm'
   ),
   (
-    'bsmidddsadsth',
-    'Bob',
-    'Smith',
+    'philfry',
+    'Philip',
+    'Fry',
     '$2y$12$4rmtdb2OLCfltde85tNHheIM0yw.RfkO6DHaP.uA6GWrSPGYLVpKm'
   );

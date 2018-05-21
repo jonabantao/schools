@@ -1,0 +1,8 @@
+.edit-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.edit-actions {
+  margin-left: 5px;
+}

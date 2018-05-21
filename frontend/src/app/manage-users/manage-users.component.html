@@ -1,6 +1,7 @@
-<section>
+<section class="manage-users-container">
   <app-manage-users-list
     [users]="users"
+    [currentUserId]="currentUserId"
     (selected)="selectUser($event)"
     (deleted)="deleteUser($event)"
   >
@@ -8,6 +9,7 @@
   <app-manage-users-edit
     [user]="selectedUser"
     (saved)="updateUser($event)"
+    (cancelled)="clearSelectedUser()"
   >
   </app-manage-users-edit>
 </section>

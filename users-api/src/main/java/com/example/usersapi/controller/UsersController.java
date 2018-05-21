@@ -54,6 +54,16 @@ public class UsersController {
         }
     }
 
+    @PatchMapping("/{userId}")
+    public User updateUser(@PathVariable long userId, @RequestBody User editedUser) {
+        User userFromDb = userRepository.findOne(userId);
+
+        userFromDb.setFirstName(editedUser.getFirstName());
+        userFromDb.setLastName(editedUser.getLastName());
+
+        return userRepository.save(userFromDb);
+    }
+
     @DeleteMapping("/{userId}")
     public HttpStatus deleteUserById(@PathVariable long userId) throws EmptyResultDataAccessException {
         userRepository.delete(userId);

@@ -1,14 +1,17 @@
 <mat-card *ngIf="isNotEmpty(selectedUser)">
   <mat-card-title>
     <h4>Editing: {{ firstAndLastName }}</h4>
-        <form class="session-container" [formGroup]="userForm" (submit)="saved.emit(userForm.value)">
+    <form class="edit-container" [formGroup]="userForm" (submit)="saved.emit(userForm.value)">
       <mat-form-field>
         <input matInput placeholder="First Name" formControlName="firstName" name="firstName">
       </mat-form-field>
       <mat-form-field>
         <input matInput placeholder="Last Name" formControlName="lastName" name="lastName">
       </mat-form-field>
-      <button mat-raised-button [disabled]="!userForm.valid">Update User</button>
+      <mat-card-actions class="edit-actions">
+        <button mat-raised-button [disabled]="!userForm.valid" color="primary">Update User</button>
+        <button mat-raised-button (click)="cancelled.emit()" color="accent">Cancel</button>
+      </mat-card-actions>
       <mat-list *ngIf="errors?.length > 0">
         <mat-list-item *ngFor="let error of errors">{{ error }}</mat-list-item>
       </mat-list>

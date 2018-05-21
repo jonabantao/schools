@@ -16,6 +16,7 @@ import { LandingPageComponent } from './landing-page/landing-page.component';
 import { ManageUsersComponent } from './manage-users/manage-users.component';
 import { ManageUsersListComponent } from './manage-users/manage-users-list/manage-users-list.component';
 import { ManageUsersEditComponent } from './manage-users/manage-users-edit/manage-users-edit.component';
+import { UsersDetailComponent } from './users-detail/users-detail.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { ManageUsersEditComponent } from './manage-users/manage-users-edit/manag
     ManageUsersComponent,
     ManageUsersListComponent,
     ManageUsersEditComponent,
+    UsersDetailComponent,
   ],
   imports: [
     BrowserModule,

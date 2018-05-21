@@ -1,21 +1,24 @@
 <mat-card>
   <mat-card-header>
     <mat-card-title>
-      <h4>Users</h4>
+      <h2>Users</h2>
     </mat-card-title>
   </mat-card-header>
   <mat-card-content>
     <mat-list>
-      <mat-list-item *ngFor="let user of users; last as last">
-        <p class="subheading-1">
-          {{ user.firstName }} {{ user.lastName }}
-        </p>
+      <mat-list-item class="list-item" *ngFor="let user of users; last as last">
+        <a routerLink="['/users/user.id']">
+          <p class="subheading-1 username">
+            {{ user.firstName }} {{ user.lastName }}
+          </p>
+        </a>
+        <span class="filler"></span>
         <button (click)="selected.emit(user)" mat-icon-button>
           <mat-icon>
             mode_edit
           </mat-icon>
         </button>
-        <button (click)="deleted.emit(user.id)" mat-icon-button>
+        <button [disabled]="currentUserId === user.id" (click)="deleted.emit(user.id)" mat-icon-button color="warn">
           <mat-icon>
             delete_forever
           </mat-icon>
