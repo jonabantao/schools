@@ -5,12 +5,13 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { LayoutModule } from '@angular/cdk/layout';
 
+import { AuthService } from './services/auth.service';
 import { UserService } from './services/user.service';
 import { AppComponent } from './app.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { AuthModule } from './auth/auth.module';
 import { NavbarComponent } from './navbar/navbar.component';
-import { MaterialModule } from './/material.module';
+import { MaterialModule } from './ng-material/material.module';
 import { AppRoutingModule } from './app-routing.module';
 import { LandingPageComponent } from './landing-page/landing-page.component';
 import { ManageUsersComponent } from './manage-users/manage-users.component';
@@ -40,7 +41,10 @@ import { UsersDetailComponent } from './users-detail/users-detail.component';
     LayoutModule,
     MaterialModule,
   ],
-  providers: [],
+  providers: [
+    UserService,
+    AuthService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
