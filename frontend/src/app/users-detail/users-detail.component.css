@@ -1,0 +1,9 @@
+.user-detail-wrapper {
+  margin-top: 5%;
+  display: flex;
+  justify-content: center;
+}
+
+.user-detail-wrapper > * {
+  width: 50%;
+}
