@@ -31,5 +31,8 @@ npm test
 ## How to Run E2E/Feature Tests
 Feature tests are located in the `/feature-test` folder and are in the `FeatureTesting.java` file located in the `test` folder.
 
-
+## User Stories
 Trello was used to track user stories: [Trello Board](https://trello.com/b/P2J6P3D0/housing)
+
+## Proposal
+Mock proposal for this project can be found [here](docs/proposal.pdf).
