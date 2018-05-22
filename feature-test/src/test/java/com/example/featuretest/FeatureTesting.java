@@ -9,17 +9,12 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.security.crypto.bcrypt.BCrypt;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import static com.codeborne.selenide.CollectionCondition.size;
 import static com.codeborne.selenide.Selenide.*;
 import static com.codeborne.selenide.Condition.*;
 
-import java.util.stream.Stream;
-
-import static io.restassured.RestAssured.when;
-import static org.hamcrest.CoreMatchers.containsString;
-import static org.hamcrest.core.Is.is;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.DEFINED_PORT)
@@ -28,6 +23,11 @@ public class FeatureTesting {
     User secondUser;
     long firstUserId;
     long secondUserId;
+
+
+    private String encryptPassword(String plainPassword) {
+        return BCrypt.hashpw(plainPassword, BCrypt.gensalt());
+    }
 
     @Autowired
     private UserRepository userRepository;
@@ -46,13 +46,13 @@ public class FeatureTesting {
                 "testeruser1",
                 "TestFirst",
                 "TestLast",
-                "tester"
+                encryptPassword("tester")
         );
         secondUser = new User(
                 "testeruser2",
                 "First",
                 "Last",
-                "testing"
+                encryptPassword("testing")
         );
 
         firstUser = userRepository.save(firstUser);
@@ -60,6 +60,8 @@ public class FeatureTesting {
 
         firstUserId = firstUser.getId();
         secondUserId = secondUser.getId();
+
+        open("http://localhost:4200");
     }
 
     @After
@@ -69,8 +71,6 @@ public class FeatureTesting {
 
     @Test
     public void shouldAllowUserToSignUp() throws Exception {
-        open("http://localhost:4200");
-
         $("#nav-signup").click();
 
         $("#signup-form").should(appear);
@@ -82,10 +82,24 @@ public class FeatureTesting {
         $("#signup-form-submit").click();
 
         $("#dashboard-title").should(appear);
+
+        $("#nav-menu").click();
+        $("#nav-logout").click();
     }
 
     @Test
     public void shouldAllowUserToLogin() throws Exception {
-        
+        $("#nav-login").click();
+
+        $("#login-form").should(appear);
+
+        $("#login-form-username").sendKeys("testeruser1");
+        $("#login-form-password").sendKeys("tester");
+        $("#login-form-submit").click();
+
+        $("#dashboard-title").should(appear);
+
+        $("#nav-menu").click();
+        $("#nav-logout").click();
     }
 }

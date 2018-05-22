@@ -3,13 +3,13 @@
     <h1 class="headline">Housing</h1>
   </a>
   <span class="navbar-filler"></span>
-  <div *ngIf="!authService.isLoggedIn()">
-    <button [routerLink]="['/login']" mat-button>Login</button>
+  <div id="nav-session-menu" *ngIf="!authService.isLoggedIn()">
+    <button id="nav-login" [routerLink]="['/login']" mat-button>Login</button>
     <button id="nav-signup" [routerLink]="['/signup']" mat-button>Sign Up</button>
   </div>
-  <button *ngIf="authService.isLoggedIn()" mat-button [matMenuTriggerFor]="menu">Menu</button>
+  <button id="nav-menu" *ngIf="authService.isLoggedIn()" mat-button [matMenuTriggerFor]="menu">Menu</button>
   <mat-menu #menu="matMenu">
     <button mat-menu-item [routerLink]="['/manage-users']">Manage Users</button>
-    <button mat-menu-item (click)="logout()">Logout</button>
+    <button id="nav-logout" mat-menu-item (click)="logout()">Logout</button>
   </mat-menu>
 </mat-toolbar>
