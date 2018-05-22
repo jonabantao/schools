@@ -32,6 +32,36 @@ VALUES
     '$2y$12$4rmtdb2OLCfltde85tNHheIM0yw.RfkO6DHaP.uA6GWrSPGYLVpKm'
   ),
   (
+    'mshake',
+    'Master',
+    'Shake',
+    '$2y$12$4rmtdb2OLCfltde85tNHheIM0yw.RfkO6DHaP.uA6GWrSPGYLVpKm'
+  ),
+  (
+    'ggrey',
+    'Gandalf',
+    'Grey',
+    '$2y$12$4rmtdb2OLCfltde85tNHheIM0yw.RfkO6DHaP.uA6GWrSPGYLVpKm'
+  ),
+  (
+    'jyang',
+    'Jian',
+    'Yang',
+    '$2y$12$4rmtdb2OLCfltde85tNHheIM0yw.RfkO6DHaP.uA6GWrSPGYLVpKm'
+  ),
+  (
+    'cburns',
+    'Charles',
+    'Burns',
+    '$2y$12$4rmtdb2OLCfltde85tNHheIM0yw.RfkO6DHaP.uA6GWrSPGYLVpKm'
+  ),
+  (
+    'knopel',
+    'Leslie',
+    'Knope',
+    '$2y$12$4rmtdb2OLCfltde85tNHheIM0yw.RfkO6DHaP.uA6GWrSPGYLVpKm'
+  ),
+  (
     'philfry',
     'Philip',
     'Fry',
