@@ -6,7 +6,7 @@ are passwords being hash and salted through BCrypt.
 ## How to Run
 Clone the repository.
 
-Docker is required. In the root directory where the `docker-compose.yml` file is located, run:
+[Docker](https://www.docker.com/community-edition) version `13` or greater is required. In the root directory where the `docker-compose.yml` file is located, run:
 
 ```
 docker-compose up
