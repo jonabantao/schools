@@ -5,7 +5,7 @@
   <span class="navbar-filler"></span>
   <div *ngIf="!authService.isLoggedIn()">
     <button [routerLink]="['/login']" mat-button>Login</button>
-    <button [routerLink]="['/signup']" mat-button>Sign Up</button>
+    <button id="nav-signup" [routerLink]="['/signup']" mat-button>Sign Up</button>
   </div>
   <button *ngIf="authService.isLoggedIn()" mat-button [matMenuTriggerFor]="menu">Menu</button>
   <mat-menu #menu="matMenu">

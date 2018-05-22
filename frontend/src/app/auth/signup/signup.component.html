@@ -1,20 +1,20 @@
 <main class="session-wrapper">
   <mat-card>
-    <form class="session-container" [formGroup]="sessionForm" (submit)="signup(sessionForm)">
+    <form id="signup-form" class="session-container" [formGroup]="sessionForm" (submit)="signup(sessionForm)">
       <mat-form-field>
-        <input matInput placeholder="Username" formControlName="username" name="username">
+        <input id="signup-form-username" matInput placeholder="Username" formControlName="username" name="username">
       </mat-form-field>
       <mat-form-field>
-        <input matInput placeholder="First Name" formControlName="firstName" name="firstName">
+        <input id="signup-form-firstname" matInput placeholder="First Name" formControlName="firstName" name="firstName">
       </mat-form-field>
       <mat-form-field>
-        <input matInput placeholder="Last Name" formControlName="lastName" name="lastName">
+        <input id="signup-form-lastname" matInput placeholder="Last Name" formControlName="lastName" name="lastName">
       </mat-form-field>
       <mat-form-field>
-        <input matInput placeholder="Password" [type]="hide ? 'password' : 'text'" formControlName="password" name="password">
+        <input id="signup-form-password" matInput placeholder="Password" [type]="hide ? 'password' : 'text'" formControlName="password" name="password">
         <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
       </mat-form-field>
-      <button mat-raised-button [disabled]="!sessionForm.valid">Sign Up</button>
+      <button id="signup-form-submit" mat-raised-button [disabled]="!sessionForm.valid">Sign Up</button>
     </form>
   </mat-card>
 </main>

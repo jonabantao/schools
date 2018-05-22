@@ -1,10 +1,7 @@
 package com.example.featuretest.models;
 
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
-import org.hibernate.validator.constraints.Length;
-import org.hibernate.validator.constraints.NotBlank;
 
 import javax.persistence.*;
 
@@ -17,30 +14,17 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @NotBlank
-    @Column(name = "USERNAME", unique = true, length = 100)
+    @Column(name = "USERNAME")
     private String username;
 
-    @NotBlank
-    @Column(name = "FIRST_NAME", length = 100)
+    @Column(name = "FIRST_NAME")
     private String firstName;
 
-    @NotBlank
-    @Column(name = "LAST_NAME", length = 100)
+    @Column(name = "LAST_NAME")
     private String lastName;
 
     @Column(name = "PASSWORD")
-    @Length(min = 6, max = 72)
     private String password;
-
-    @JsonIgnore
-    public String getPassword() {
-        return this.password;
-    }
-
-    public void setPassword(String newPassword) {
-        this.password = newPassword;
-    }
 
     public User(String username, String firstName, String lastName, String password) {
         this.username = username;
