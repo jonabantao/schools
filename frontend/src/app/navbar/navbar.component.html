@@ -4,8 +4,8 @@
   </a>
   <span class="navbar-filler"></span>
   <div id="nav-session-menu" *ngIf="!authService.isLoggedIn()">
-    <button id="nav-login" [routerLink]="['/login']" mat-button>Login</button>
-    <button id="nav-signup" [routerLink]="['/signup']" mat-button>Sign Up</button>
+    <button id="nav-login" (click)="openLoginModal()" mat-button>Login</button>
+    <button id="nav-signup" (click)="openSignupModal()" mat-button>Sign Up</button>
   </div>
   <button id="nav-menu" *ngIf="authService.isLoggedIn()" mat-button [matMenuTriggerFor]="menu">Menu</button>
   <mat-menu #menu="matMenu">

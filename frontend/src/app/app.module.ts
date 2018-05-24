@@ -18,6 +18,8 @@ import { ManageUsersComponent } from './manage-users/manage-users.component';
 import { ManageUsersListComponent } from './manage-users/manage-users-list/manage-users-list.component';
 import { ManageUsersEditComponent } from './manage-users/manage-users-edit/manage-users-edit.component';
 import { UsersDetailComponent } from './users-detail/users-detail.component';
+import { LoginComponent } from './auth/login/login.component';
+import { SignupComponent } from './auth/signup/signup.component';
 
 @NgModule({
   declarations: [
@@ -44,6 +46,10 @@ import { UsersDetailComponent } from './users-detail/users-detail.component';
   providers: [
     UserService,
     AuthService
+  ],
+  entryComponents: [
+    LoginComponent,
+    SignupComponent,
   ],
   bootstrap: [AppComponent]
 })

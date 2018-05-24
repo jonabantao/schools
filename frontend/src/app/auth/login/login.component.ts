@@ -55,5 +55,4 @@ export class LoginComponent implements OnInit {
   resetForm(): void {
     this.sessionForm.reset();
   }
-
 }

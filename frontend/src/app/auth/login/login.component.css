@@ -1,9 +1,3 @@
-.session-wrapper {
-  display: flex;
-  justify-content: center;
-  margin-top: 10%;
-}
-
 .session-container {
   display: flex;
   flex-direction: column;

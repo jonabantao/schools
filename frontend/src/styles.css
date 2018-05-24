@@ -10,3 +10,7 @@ a {
   color: inherit;
   text-decoration: inherit;
 }
+
+.session .mat-dialog-container {
+  padding: 0;
+}
