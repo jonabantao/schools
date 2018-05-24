@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 
 import { AuthService } from '../../services/auth.service';
 import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
+import { MatDialogRef } from '@angular/material';
 
 @Component({
   selector: 'app-signup',
@@ -23,6 +24,7 @@ export class SignupComponent implements OnInit {
     private router: Router,
     private authService: AuthService,
     private formBuilder: FormBuilder,
+    private dialogRef: MatDialogRef<SignupComponent>,
   ) { }
 
   ngOnInit() {
@@ -61,6 +63,7 @@ export class SignupComponent implements OnInit {
     this.authService.signupUser(form.value)
       .subscribe((user: User) => {
         this.authService.storeUserInLocalStorage(user);
+        this.dialogRef.close();
         this.router.navigate(['/dashboard']);
       });
   }

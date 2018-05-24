@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 
 import { AuthService } from '../../services/auth.service';
 import { User } from './../../models/user.model';
+import { MatDialogRef } from '@angular/material';
 
 @Component({
   selector: 'app-login',
@@ -19,6 +20,7 @@ export class LoginComponent implements OnInit {
     private router: Router,
     private authService: AuthService,
     private formBuilder: FormBuilder,
+    private dialogRef: MatDialogRef<LoginComponent>,
   ) { }
 
   ngOnInit() {
@@ -35,6 +37,7 @@ export class LoginComponent implements OnInit {
       .subscribe((user: User) => {
         this.authService.storeUserInLocalStorage(user);
         this.clearErrors();
+        this.dialogRef.close();
         this.router.navigate(['/dashboard']);
       },
       ({ error }) => {
