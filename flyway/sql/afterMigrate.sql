@@ -1,69 +1,80 @@
 INSERT INTO USERS
-  (USERNAME, FIRST_NAME, LAST_NAME, PASSWORD)
+  (USERNAME, FIRST_NAME, LAST_NAME, EMAIL, PASSWORD)
 VALUES
   (
     'bsmith',
     'Bob',
     'Smith',
+    'bsmith@examail.com',
     '$2y$12$4rmtdb2OLCfltde85tNHheIM0yw.RfkO6DHaP.uA6GWrSPGYLVpKm'
   ),
   (
     'jdoe',
     'John',
     'Doe',
+    'jdoe@examail.com',
     '$2y$12$4rmtdb2OLCfltde85tNHheIM0yw.RfkO6DHaP.uA6GWrSPGYLVpKm'
   ),
   (
     'jilldoe',
     'Jill',
     'Doe',
+    'jilldoe@examail.com',
     '$2y$12$4rmtdb2OLCfltde85tNHheIM0yw.RfkO6DHaP.uA6GWrSPGYLVpKm'
   ),
   (
     'bestcaptain',
     'Zapp',
     'Brannigan',
+    'zbran@examail.com',
     '$2y$12$4rmtdb2OLCfltde85tNHheIM0yw.RfkO6DHaP.uA6GWrSPGYLVpKm'
   ),
   (
     'terribadleader',
     'Jon',
     'Snow',
+    'jsnow@examail.com',
     '$2y$12$4rmtdb2OLCfltde85tNHheIM0yw.RfkO6DHaP.uA6GWrSPGYLVpKm'
   ),
   (
     'mshake',
     'Master',
     'Shake',
+    'mshake@examail.com',
     '$2y$12$4rmtdb2OLCfltde85tNHheIM0yw.RfkO6DHaP.uA6GWrSPGYLVpKm'
   ),
   (
     'ggrey',
     'Gandalf',
     'Grey',
+    'ggrey@examail.com',
     '$2y$12$4rmtdb2OLCfltde85tNHheIM0yw.RfkO6DHaP.uA6GWrSPGYLVpKm'
   ),
   (
     'jyang',
     'Jian',
     'Yang',
+    'jyang@examail.com',
     '$2y$12$4rmtdb2OLCfltde85tNHheIM0yw.RfkO6DHaP.uA6GWrSPGYLVpKm'
   ),
   (
     'cburns',
     'Charles',
     'Burns',
+    'cburns@@examail.com',
     '$2y$12$4rmtdb2OLCfltde85tNHheIM0yw.RfkO6DHaP.uA6GWrSPGYLVpKm'
   ),
   (
     'knopel',
     'Leslie',
     'Knope',
+    'lk@examail.com',
     '$2y$12$4rmtdb2OLCfltde85tNHheIM0yw.RfkO6DHaP.uA6GWrSPGYLVpKm'
   ),
   (
     'philfry',
     'Philip',
     'Fry',
+    'jfry@examail.com',
     '$2y$12$4rmtdb2OLCfltde85tNHheIM0yw.RfkO6DHaP.uA6GWrSPGYLVpKm'
   );

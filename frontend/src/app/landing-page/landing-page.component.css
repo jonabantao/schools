@@ -1,0 +1,15 @@
+.landing-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 3%;
+}
+
+.landing-container > * {
+  width: 30%;
+}
+
+.card-title {
+  text-align: center;
+}
