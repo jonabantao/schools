@@ -10,7 +10,7 @@
       </mat-form-field>
       <button id="login-form-submit" mat-raised-button [disabled]="!sessionForm.valid">Log In</button>
       <mat-list *ngIf="errors?.length > 0">
-        <mat-list-item *ngFor="let error of errors">{{ error }}</mat-list-item>
+        <mat-error *ngFor="let error of errors">{{ error }}</mat-error>
       </mat-list>
     </form>
   </mat-card>

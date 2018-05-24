@@ -14,3 +14,7 @@
 .session-container > * {
   width: 100%;
 }
+
+.signup-submit-button {
+  margin-top: 20px;
+}
