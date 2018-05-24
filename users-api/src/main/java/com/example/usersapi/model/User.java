@@ -28,6 +28,10 @@ public class User {
     @Column(name = "LAST_NAME", length = 100)
     private String lastName;
 
+    @NotBlank
+    @Column(name = "EMAIL", length = 100)
+    private String email;
+
     @Column(name = "PASSWORD")
     @Length(min = 6, max = 72)
     private String password;
@@ -42,11 +46,12 @@ public class User {
     }
 
 
-    public User(String username, String firstName, String lastName, String password) {
+    public User(String username, String firstName, String lastName, String password, String email) {
         this.username = username;
         this.firstName = firstName;
         this.lastName = lastName;
         this.password = password;
+        this.email = email;
     }
 
 }

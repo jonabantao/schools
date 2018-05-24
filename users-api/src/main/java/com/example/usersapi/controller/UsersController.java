@@ -36,7 +36,8 @@ public class UsersController {
                 signupRequest.getUsername(),
                 signupRequest.getFirstName(),
                 signupRequest.getLastName(),
-                hashedPassword
+                hashedPassword,
+                signupRequest.getEmail()
         );
 
         return userRepository.save(newUser);
