@@ -1,4 +1,8 @@
-<mat-card>
+<mat-card *ngIf="isInitLoadState">
+  <mat-spinner class="center"></mat-spinner>
+</mat-card>
+
+<mat-card *ngIf="!isInitLoadState">
   <mat-card-header>
     <mat-card-title>
       <h2>Users</h2>

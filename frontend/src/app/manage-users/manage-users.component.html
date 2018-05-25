@@ -2,6 +2,7 @@
   <app-manage-users-list
     [users]="users"
     [currentUserId]="currentUserId"
+    [isInitLoadState]="isInitLoadState"
     (selected)="selectUser($event)"
     (deleted)="deleteUser($event)"
   >

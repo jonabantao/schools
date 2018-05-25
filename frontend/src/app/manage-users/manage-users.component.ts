@@ -14,6 +14,7 @@ export class ManageUsersComponent implements OnInit {
   selectedUser: User;
   currentUser: any;
   currentUserId: number;
+  isInitLoadState: boolean;
 
   constructor(
     private userService: UserService,
@@ -21,6 +22,8 @@ export class ManageUsersComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.isInitLoadState = true;
+
     if (this.authService.isLoggedIn()) {
       this.currentUser = this.authService.retrieveUserInLocalStorage();
       this.currentUserId = this.currentUser.id;
@@ -29,9 +32,20 @@ export class ManageUsersComponent implements OnInit {
     this.getUsers();
   }
 
+  stopLoadState() {
+    this.isInitLoadState = false;
+  }
+
+  startLoadState() {
+    this.isInitLoadState = true;
+  }
+
   getUsers(): void {
     this.userService.getUsers()
-      .subscribe((users: User[]) => this.users = users);
+      .subscribe((users: User[]) => {
+        this.stopLoadState();
+        this.users = users;
+      });
   }
 
   selectUser(user: User): void {
@@ -46,6 +60,7 @@ export class ManageUsersComponent implements OnInit {
   }
 
   updateUser(user: User): void {
+    this.startLoadState();
     const userToSendToServer = Object.assign({}, this.selectedUser, user);
 
     this.userService.updateUser(userToSendToServer)
