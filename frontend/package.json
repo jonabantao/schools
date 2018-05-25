@@ -7,10 +7,12 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "aws": "ng build --configuration=production && aws s3 sync ./dist/frontend/ s3://seca-school-app"
   },
   "private": true,
   "dependencies": {
+    "@agm/core": "^1.0.0-beta.3",
     "@angular/animations": "^6.0.2",
     "@angular/cdk": "^6.0.2",
     "@angular/common": "^6.0.0",
