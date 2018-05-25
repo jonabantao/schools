@@ -4,6 +4,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { LayoutModule } from '@angular/cdk/layout';
+import { AgmCoreModule } from '@agm/core';
+
+import { GOOGLE_MAPS_URL } from '../conf/googlemaps';
 
 import { AuthService } from './services/auth.service';
 import { UserService } from './services/user.service';
@@ -42,6 +45,7 @@ import { SignupComponent } from './auth/signup/signup.component';
     AuthModule,
     LayoutModule,
     MaterialModule,
+    AgmCoreModule.forRoot({ apiKey: GOOGLE_MAPS_URL }),
   ],
   providers: [
     UserService,
