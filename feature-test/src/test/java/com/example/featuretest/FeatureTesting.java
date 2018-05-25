@@ -46,13 +46,15 @@ public class FeatureTesting {
                 "testeruser1",
                 "TestFirst",
                 "TestLast",
-                encryptPassword("tester")
+                encryptPassword("tester"),
+                "testeruser1@examail.com"
         );
         secondUser = new User(
                 "testeruser2",
                 "First",
                 "Last",
-                encryptPassword("testing")
+                encryptPassword("testing"),
+                "testeruser2@examail.com"
         );
 
         firstUser = userRepository.save(firstUser);
@@ -78,6 +80,7 @@ public class FeatureTesting {
         $("#signup-form-username").sendKeys("testingroute");
         $("#signup-form-firstname").sendKeys("Firstname");
         $("#signup-form-lastname").sendKeys("Lastname");
+        $("#signup-form-email").sendKeys("notarealemail@examail.com");
         $("#signup-form-password").sendKeys("testpw");
         $("#signup-form-submit").click();
 

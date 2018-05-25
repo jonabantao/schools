@@ -14,7 +14,7 @@ import { SignupComponent } from '../auth/signup/signup.component';
 export class NavbarComponent {
 
   constructor(
-    private authService: AuthService,
+    public authService: AuthService,
     private router: Router,
     public dialog: MatDialog,
   ) {}
