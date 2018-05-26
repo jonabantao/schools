@@ -1,12 +1,13 @@
-import { SessionForm } from './../models/session-form.model';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { environment } from './../../environments/environment';
+import { SessionForm } from './../models/session-form.model';
 import { User } from './../models/user.model';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { FormGroup } from '@angular/forms';
 
 const HEADER = { headers: new HttpHeaders({ 'Content-Type': 'application/json' }) };
-const API_USERS_URL = '/api/users/';
+const API_USERS_URL = `${environment.apiHost}/api/users/`;
 
 @Injectable({
   providedIn: 'root'
