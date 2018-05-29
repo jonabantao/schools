@@ -12,6 +12,7 @@ export class SchoolsComponent implements OnInit {
   defaultLng = -122.451297;
   maxConstraint = 11;
   schools: any;
+  policeEvents: any;
 
   constructor(
     private schoolService: SchoolService,
@@ -20,6 +21,20 @@ export class SchoolsComponent implements OnInit {
   ngOnInit() {
     // this.schoolService.fetchSchools()
     //   .subscribe(schools => this.schools = schools);
+  }
+
+  checkPoliceToggle(toggleState) {
+    if (toggleState.checked) {
+      console.log('yay');
+    }
+  }
+
+  fetchPoliceActivity() {
+
+  }
+
+  clearPoliceActivity() {
+    this.policeEvents = null;
   }
 
 }

@@ -25,6 +25,7 @@ import { UsersDetailComponent } from './users-detail/users-detail.component';
 import { LoginComponent } from './auth/login/login.component';
 import { SignupComponent } from './auth/signup/signup.component';
 import { SchoolService } from './services/school.service';
+import { SchoolsSearchFormComponent } from './schools/schools-search-form/schools-search-form.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import { SchoolService } from './services/school.service';
     ManageUsersListComponent,
     ManageUsersEditComponent,
     UsersDetailComponent,
+    SchoolsSearchFormComponent,
   ],
   imports: [
     BrowserModule,

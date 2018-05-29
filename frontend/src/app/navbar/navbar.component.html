@@ -9,6 +9,7 @@
   </div>
   <button id="nav-menu" *ngIf="authService.isLoggedIn()" mat-button [matMenuTriggerFor]="menu">Menu</button>
   <mat-menu #menu="matMenu">
+    <button mat-menu-item [routerLink]="['/schools']">School Search</button>
     <button mat-menu-item [routerLink]="['/manage-users']">Manage Users</button>
     <button id="nav-logout" mat-menu-item (click)="logout()">Logout</button>
   </mat-menu>

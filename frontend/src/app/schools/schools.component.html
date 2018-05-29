@@ -1,4 +1,8 @@
 <section class="schools-container">
+  <app-schools-search-form
+    (changed)="checkPoliceToggle($event)"
+  >
+  </app-schools-search-form>
   <mat-card class="map-container">
     <agm-map [zoom]="defaultZoom" [disableDefaultUI]="true" [latitude]="defaultLat" [longitude]="defaultLng" [minZoom]="maxConstraint" [clickableIcons]="false">
       <agm-marker *ngFor="let school of schools" [latitude]="school.location_1.coordinates[1]" [longitude]="school.location_1.coordinates[0]">
