@@ -13,6 +13,14 @@
           </ng-template>
         </agm-snazzy-info-window>
       </agm-marker>
+      <agm-marker *ngFor="let police of policeEvents" [latitude]="police.location.coordinates[1]" [longitude]="police.location.coordinates[0]">
+        <agm-snazzy-info-window [maxWidth]="600" [closeWhenOthersOpen]="true">
+          <ng-template>
+            <h5>{{ police.category }}</h5>
+            <h6>{{ police.descript }}</h6>
+          </ng-template>
+        </agm-snazzy-info-window>
+      </agm-marker>
     </agm-map>
   </mat-card>
 </section>

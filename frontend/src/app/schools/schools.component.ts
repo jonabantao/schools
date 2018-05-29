@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SchoolService } from '../services/school.service';
+import { PoliceService } from '../services/police.service';
+import { PoliceEvents } from '../models/police-events.model';
 
 @Component({
   selector: 'app-schools',
@@ -12,10 +14,11 @@ export class SchoolsComponent implements OnInit {
   defaultLng = -122.451297;
   maxConstraint = 11;
   schools: any;
-  policeEvents: any;
+  policeEvents: PoliceEvents[];
 
   constructor(
     private schoolService: SchoolService,
+    private policeService: PoliceService,
   ) { }
 
   ngOnInit() {
@@ -25,15 +28,18 @@ export class SchoolsComponent implements OnInit {
 
   checkPoliceToggle(toggleState) {
     if (toggleState.checked) {
-      console.log('yay');
+      return this.getPoliceActivity();
     }
+
+    return this.clearPoliceActivity();
   }
 
-  fetchPoliceActivity() {
-
+  getPoliceActivity(): void {
+    this.policeService.fetchPoliceActivity()
+      .subscribe((policeEvents: PoliceEvents[]) => this.policeEvents = policeEvents);
   }
 
-  clearPoliceActivity() {
+  clearPoliceActivity(): void {
     this.policeEvents = null;
   }
 
