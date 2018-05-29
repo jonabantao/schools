@@ -9,10 +9,13 @@ import { PoliceEvents } from '../models/police-events.model';
   styleUrls: ['./schools.component.css']
 })
 export class SchoolsComponent implements OnInit {
-  defaultZoom = 12.4;
-  defaultLat = 37.773972;
-  defaultLng = -122.451297;
-  maxConstraint = 11;
+  zoom = 12.4;
+  lat = 37.773972;
+  lng = -122.451297;
+  NWPointLng: number;
+  SEPointLng: number;
+  NWPointLat: number;
+  SEPointLat: number;
   schools: any;
   policeEvents: PoliceEvents[];
 
@@ -26,7 +29,7 @@ export class SchoolsComponent implements OnInit {
       .subscribe(schools => this.schools = schools);
   }
 
-  checkPoliceToggle(toggleState) {
+  checkPoliceToggle(toggleState): void {
     if (toggleState.checked) {
       return this.getPoliceActivity();
     }
@@ -35,12 +38,25 @@ export class SchoolsComponent implements OnInit {
   }
 
   getPoliceActivity(): void {
-    this.policeService.fetchPoliceActivity()
+    this.policeService.fetchPoliceActivity(
+      this.NWPointLat,
+      this.NWPointLng,
+      this.SEPointLat,
+      this.SEPointLng,
+    )
       .subscribe((policeEvents: PoliceEvents[]) => this.policeEvents = policeEvents);
   }
 
   clearPoliceActivity(): void {
     this.policeEvents = null;
+  }
+
+  test(event): void {
+    this.NWPointLng = event.b.b;
+    this.SEPointLng = event.b.f;
+    this.NWPointLat = event.f.f;
+    this.SEPointLat = event.f.b;
+    console.log(event);
   }
 
 }

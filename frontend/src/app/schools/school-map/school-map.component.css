@@ -1,0 +1,14 @@
+.map-container {
+  padding: 0;
+  margin: 0;
+  min-width: 600px;
+}
+
+agm-map {
+  height: 800px;
+}
+
+agm-snazzy-info-window {
+  width: 400px;
+}
+
