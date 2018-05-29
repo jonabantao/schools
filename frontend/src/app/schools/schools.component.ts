@@ -22,8 +22,8 @@ export class SchoolsComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    // this.schoolService.fetchSchools()
-    //   .subscribe(schools => this.schools = schools);
+    this.schoolService.fetchSchools()
+      .subscribe(schools => this.schools = schools);
   }
 
   checkPoliceToggle(toggleState) {

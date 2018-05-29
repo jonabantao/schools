@@ -6,6 +6,10 @@
   margin-top: 3%;
 }
 
+.police-marker {
+  fill: red;
+}
+
 .map-container {
   padding: 0;
   margin: 0;

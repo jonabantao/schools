@@ -5,7 +5,10 @@
   </app-schools-search-form>
   <mat-card class="map-container">
     <agm-map [zoom]="defaultZoom" [disableDefaultUI]="true" [latitude]="defaultLat" [longitude]="defaultLng" [minZoom]="maxConstraint" [clickableIcons]="false">
-      <agm-marker *ngFor="let school of schools" [latitude]="school.location_1.coordinates[1]" [longitude]="school.location_1.coordinates[0]">
+      <agm-marker *ngFor="let school of schools" 
+        [latitude]="school.location_1.coordinates[1]" 
+        [longitude]="school.location_1.coordinates[0]"
+        [iconUrl]="'./assets/icons/school.png'">
         <agm-snazzy-info-window [maxWidth]="600" [closeWhenOthersOpen]="true">
           <ng-template>
             <h5>{{ school.campus_name }}</h5>
@@ -13,7 +16,11 @@
           </ng-template>
         </agm-snazzy-info-window>
       </agm-marker>
-      <agm-marker *ngFor="let police of policeEvents" [latitude]="police.location.coordinates[1]" [longitude]="police.location.coordinates[0]">
+      <agm-marker *ngFor="let police of policeEvents" 
+      [latitude]="police.location.coordinates[1]" 
+      [longitude]="police.location.coordinates[0]"
+      [iconUrl]="'./assets/icons/caution.png'"
+      class="police-marker">
         <agm-snazzy-info-window [maxWidth]="600" [closeWhenOthersOpen]="true">
           <ng-template>
             <h5>{{ police.category }}</h5>

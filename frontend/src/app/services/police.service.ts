@@ -19,7 +19,7 @@ export class PoliceService {
     const dateThreeMonthsBack = moment().subtract(2, 'months').format('YYYY-MM-DDTHH:mm:ss');
     const encodedURI = 'https://data.sfgov.org/resource/cuks-n6tp.json';
     const query = `?$query=SELECT category, descript, location \
-    WHERE category NOT IN ('NON-CRIMINAL', 'OTHER OFFENSES', 'RECOVERED VEHICLE')\
+    WHERE category NOT IN ('NON-CRIMINAL', 'OTHER OFFENSES', 'RECOVERED VEHICLE', 'WARRANTS', 'SUSPICIOUS OCC')\
     AND date BETWEEN '${dateThreeMonthsBack}' AND '${dateNow}'`;
 
 
