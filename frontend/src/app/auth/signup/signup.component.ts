@@ -64,7 +64,7 @@ export class SignupComponent implements OnInit {
       .subscribe((user: User) => {
         this.authService.storeUserInLocalStorage(user);
         this.dialogRef.close();
-        this.router.navigate(['/dashboard']);
+        this.router.navigate(['/schools']);
       });
   }
 

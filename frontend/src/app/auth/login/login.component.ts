@@ -38,7 +38,7 @@ export class LoginComponent implements OnInit {
         this.authService.storeUserInLocalStorage(user);
         this.clearErrors();
         this.dialogRef.close();
-        this.router.navigate(['/dashboard']);
+        this.router.navigate(['/schools']);
       },
       ({ error }) => {
         this.handleErrors(error.message);

@@ -84,7 +84,7 @@ public class FeatureTesting {
         $("#signup-form-password").sendKeys("testpw");
         $("#signup-form-submit").click();
 
-        $("#dashboard-title").should(appear);
+        $("#schools-title").should(appear);
 
         $("#nav-menu").click();
         $("#nav-logout").click();
@@ -100,7 +100,7 @@ public class FeatureTesting {
         $("#login-form-password").sendKeys("tester");
         $("#login-form-submit").click();
 
-        $("#dashboard-title").should(appear);
+        $("#schools-title").should(appear);
 
         $("#nav-menu").click();
         $("#nav-logout").click();

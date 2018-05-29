@@ -5,13 +5,14 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { LayoutModule } from '@angular/cdk/layout';
 import { AgmCoreModule } from '@agm/core';
+import { AgmSnazzyInfoWindowModule } from '@agm/snazzy-info-window';
 
 import { GOOGLE_MAPS_URL } from '../conf/googlemaps';
 
 import { AuthService } from './services/auth.service';
 import { UserService } from './services/user.service';
 import { AppComponent } from './app.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
+import { SchoolsComponent } from './schools/schools.component';
 import { AuthModule } from './auth/auth.module';
 import { NavbarComponent } from './navbar/navbar.component';
 import { MaterialModule } from './ng-material/material.module';
@@ -23,11 +24,12 @@ import { ManageUsersEditComponent } from './manage-users/manage-users-edit/manag
 import { UsersDetailComponent } from './users-detail/users-detail.component';
 import { LoginComponent } from './auth/login/login.component';
 import { SignupComponent } from './auth/signup/signup.component';
+import { SchoolService } from './services/school.service';
 
 @NgModule({
   declarations: [
     AppComponent,
-    DashboardComponent,
+    SchoolsComponent,
     NavbarComponent,
     LandingPageComponent,
     ManageUsersComponent,
@@ -46,10 +48,12 @@ import { SignupComponent } from './auth/signup/signup.component';
     LayoutModule,
     MaterialModule,
     AgmCoreModule.forRoot({ apiKey: GOOGLE_MAPS_URL }),
+    AgmSnazzyInfoWindowModule,
   ],
   providers: [
     UserService,
-    AuthService
+    AuthService,
+    SchoolService,
   ],
   entryComponents: [
     LoginComponent,

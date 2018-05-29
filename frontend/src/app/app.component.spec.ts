@@ -7,7 +7,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
 import { LoginComponent } from './auth/login/login.component';
 import { SignupComponent } from './auth/signup/signup.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
+import { SchoolsComponent } from './schools/schools.component';
 import { ManageUsersComponent } from './manage-users/manage-users.component';
 import { ManageUsersEditComponent } from './manage-users/manage-users-edit/manage-users-edit.component';
 import { ManageUsersListComponent } from './manage-users/manage-users-list/manage-users-list.component';
@@ -21,7 +21,7 @@ describe('AppComponent', () => {
     TestBed.configureTestingModule({
       declarations: [
         AppComponent,
-        DashboardComponent,
+        SchoolsComponent,
         NavbarComponent,
         LandingPageComponent,
         ManageUsersComponent,
