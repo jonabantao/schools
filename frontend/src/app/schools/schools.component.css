@@ -1,15 +1,8 @@
 .schools-container {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
   margin-top: 3%;
-}
-
-.map-container {
-  padding: 0;
-  margin: 0;
-  min-width: 600px;
 }
 
 .schools-container > * {
@@ -18,12 +11,4 @@
 
 .card-title {
   text-align: center;
-}
-
-agm-map {
-  height: 800px;
-}
-
-agm-snazzy-info-window {
-  width: 400px;
 }

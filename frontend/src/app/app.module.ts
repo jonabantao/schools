@@ -10,13 +10,17 @@ import { AgmSnazzyInfoWindowModule } from '@agm/snazzy-info-window';
 import { GOOGLE_MAPS_URL } from '../conf/googlemaps';
 
 import { AuthService } from './services/auth.service';
+import { SchoolService } from './services/school.service';
 import { UserService } from './services/user.service';
-import { AppComponent } from './app.component';
-import { SchoolsComponent } from './schools/schools.component';
+import { PoliceService } from './services/police.service';
+
 import { AuthModule } from './auth/auth.module';
-import { NavbarComponent } from './navbar/navbar.component';
 import { MaterialModule } from './ng-material/material.module';
 import { AppRoutingModule } from './app-routing.module';
+
+import { AppComponent } from './app.component';
+import { SchoolsComponent } from './schools/schools.component';
+import { NavbarComponent } from './navbar/navbar.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
 import { ManageUsersComponent } from './manage-users/manage-users.component';
 import { ManageUsersListComponent } from './manage-users/manage-users-list/manage-users-list.component';
@@ -24,7 +28,8 @@ import { ManageUsersEditComponent } from './manage-users/manage-users-edit/manag
 import { UsersDetailComponent } from './users-detail/users-detail.component';
 import { LoginComponent } from './auth/login/login.component';
 import { SignupComponent } from './auth/signup/signup.component';
-import { SchoolService } from './services/school.service';
+import { SchoolsSearchFormComponent } from './schools/schools-search-form/schools-search-form.component';
+import { SchoolMapComponent } from './schools/school-map/school-map.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +41,8 @@ import { SchoolService } from './services/school.service';
     ManageUsersListComponent,
     ManageUsersEditComponent,
     UsersDetailComponent,
+    SchoolsSearchFormComponent,
+    SchoolMapComponent,
   ],
   imports: [
     BrowserModule,
@@ -54,6 +61,7 @@ import { SchoolService } from './services/school.service';
     UserService,
     AuthService,
     SchoolService,
+    PoliceService,
   ],
   entryComponents: [
     LoginComponent,
