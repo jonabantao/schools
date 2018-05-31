@@ -1,13 +1,18 @@
 <section class="schools-container">
-  <app-schools-search-form
-    (changed)="checkPoliceToggle($event)">
-  </app-schools-search-form>
-  <app-school-map
+  <div>
+    <app-schools-search-form
+      (formSubmitted)="searchSchools($event)">
+    </app-schools-search-form>
+    <app-school-option
+      (changed)="checkPoliceToggle($event)">
+    </app-school-option>
+  </div>
+    <app-school-map
     [schools]="schools"
     [policeEvents]="policeEvents"
     [mapZoom]="zoom"
     [mapLat]="lat"
     [mapLng]="lng"
-    (boundsChanged)="test($event)">
+    (boundsChanged)="storeMapBounds($event)">
   </app-school-map>
 </section>

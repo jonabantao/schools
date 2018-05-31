@@ -1,4 +1,39 @@
 mat-card {
   padding: 0;
   margin: 0;
+  margin-bottom: 10px;
+}
+
+form {
+  margin-left: 10px;
+}
+
+.range-field {
+  display: flex;
+  flex-direction: column;
+}
+
+.range-field > * {
+  margin-left: 5px;
+}
+
+.school-form-radio {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.school-form-radio > mat-radio-button {
+  margin-bottom: 5px;
+  margin-left: 5px;
+}
+
+mat-card-actions > button:first-child {
+  margin-left: 20px;
+}
+
+@media (max-width: 800px) {
+  mat-card {
+    min-width: 600px;
+  }
 }

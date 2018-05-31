@@ -1,0 +1,10 @@
+<mat-card>
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+       {{ title }}
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+    <mat-slide-toggle class="first-toggle-element" (change)="changed.emit($event)">Police Activity</mat-slide-toggle>
+  </mat-expansion-panel>
+</mat-card>

@@ -1,17 +1,26 @@
-import { Component, OnInit, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-schools-search-form',
   templateUrl: './schools-search-form.component.html',
   styleUrls: ['./schools-search-form.component.css']
 })
-export class SchoolsSearchFormComponent implements OnInit {
-  @Output() changed = new EventEmitter();
-
+export class SchoolsSearchFormComponent {
   title = 'Search Schools';
+  lowerGrade: string;
+  upperGrade: string;
+  schoolForm: FormGroup;
 
-  constructor() { }
+  @Output() formSubmitted = new EventEmitter();
 
-  ngOnInit() {
+  constructor(
+    private formBuilder: FormBuilder,
+  ) {
+    this.schoolForm = this.formBuilder.group({
+      schoolCategory: '',
+      lowerGrade: '',
+      upperGrade: '',
+    });
   }
 }

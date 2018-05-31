@@ -13,7 +13,7 @@ export class SchoolMapComponent implements OnInit {
   @Input() schools: any[];
   @Input() policeEvents: PoliceEvents[];
   @Output() boundsChanged = new EventEmitter();
-  maxConstraint = 11;
+  maxConstraint = 12;
 
   constructor() { }
 

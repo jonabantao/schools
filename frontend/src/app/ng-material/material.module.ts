@@ -16,6 +16,7 @@ import {
   MatProgressSpinnerModule,
   MatSlideToggleModule,
   MatExpansionModule,
+  MatRadioModule,
 } from '@angular/material';
 
 
@@ -37,6 +38,7 @@ import {
     MatProgressSpinnerModule,
     MatSlideToggleModule,
     MatExpansionModule,
+    MatRadioModule,
   ],
   exports: [
     MatToolbarModule,
@@ -55,6 +57,7 @@ import {
     MatProgressSpinnerModule,
     MatSlideToggleModule,
     MatExpansionModule,
+    MatRadioModule,
   ],
 })
 export class MaterialModule { }
