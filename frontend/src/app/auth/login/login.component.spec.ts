@@ -6,6 +6,7 @@ import { LoginComponent } from './login.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MaterialModule } from '../../ng-material/material.module';
 import { RouterTestingModule } from '@angular/router/testing';
+import { MatDialogModule, MatDialogRef } from '@angular/material';
 
 describe('LoginComponent', () => {
   let component: LoginComponent;
@@ -20,7 +21,13 @@ describe('LoginComponent', () => {
         RouterTestingModule,
         HttpClientTestingModule,
         BrowserAnimationsModule,
-      ]
+      ],
+      providers: [{
+        provide: MatDialogRef,
+        useValue: {
+          close: (dialogResult: any) => { }
+        }
+      }]
     })
     .compileComponents();
   }));

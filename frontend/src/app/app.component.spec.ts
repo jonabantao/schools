@@ -15,6 +15,13 @@ import { UsersDetailComponent } from './users-detail/users-detail.component';
 import { AuthModule } from './auth/auth.module';
 import { MaterialModule } from './ng-material/material.module';
 import { ReactiveFormsModule } from '@angular/forms';
+import { SchoolsSearchFormComponent } from './schools/schools-search-form/schools-search-form.component';
+import { SchoolMapComponent } from './schools/school-map/school-map.component';
+import { SchoolOptionComponent } from './schools/school-option/school-option.component';
+import { AgmCoreModule } from '@agm/core';
+import { AgmSnazzyInfoWindowModule } from '@agm/snazzy-info-window';
+import { AppRoutingModule } from './app-routing.module';
+import { APP_BASE_HREF } from '@angular/common';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
@@ -25,17 +32,23 @@ describe('AppComponent', () => {
         NavbarComponent,
         LandingPageComponent,
         ManageUsersComponent,
-        ManageUsersEditComponent,
         ManageUsersListComponent,
+        ManageUsersEditComponent,
         UsersDetailComponent,
+        SchoolsSearchFormComponent,
+        SchoolMapComponent,
+        SchoolOptionComponent,
       ],
       imports: [
-        AuthModule,
-        RouterTestingModule,
-        MaterialModule,
         ReactiveFormsModule,
+        AppRoutingModule,
+        AuthModule,
+        MaterialModule,
+        AgmCoreModule.forRoot(),
+        AgmSnazzyInfoWindowModule,
         HttpClientTestingModule,
       ],
+      providers: [{ provide: APP_BASE_HREF, useValue: '/' }]
     }).compileComponents();
   }));
   it('should create the app', async(() => {

@@ -1,6 +1,9 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { SchoolMapComponent } from './school-map.component';
+import { AgmCoreModule } from '@agm/core';
+import { AgmSnazzyInfoWindowModule } from '@agm/snazzy-info-window';
+import { MaterialModule } from '../../ng-material/material.module';
 
 describe('SchoolMapComponent', () => {
   let component: SchoolMapComponent;
@@ -8,7 +11,12 @@ describe('SchoolMapComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ SchoolMapComponent ]
+      declarations: [ SchoolMapComponent ],
+      imports: [
+        AgmCoreModule.forRoot(),
+        AgmSnazzyInfoWindowModule,
+        MaterialModule,
+      ],
     })
     .compileComponents();
   }));

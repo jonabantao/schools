@@ -3,6 +3,8 @@ import { HttpClientTestingModule, HttpTestingController } from '@angular/common/
 
 import { UserService } from './user.service';
 import { User } from '../models/user.model';
+import { environment } from '../../environments/environment';
+
 
 describe('UserService', () => {
   let service: UserService;
@@ -11,7 +13,7 @@ describe('UserService', () => {
   let dummyUser: User;
   let dummyUsers: User[];
 
-  const USER_BASE_URL = '/api/users/';
+  const TEST_USER_API_URL = `${environment.apiHost}/api/users/`;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -41,7 +43,7 @@ describe('UserService', () => {
           expect(res.length).toEqual(1);
         });
 
-      const mock = httpMock.expectOne(USER_BASE_URL);
+      const mock = httpMock.expectOne(TEST_USER_API_URL);
       expect(mock.request.method).toBe('GET');
 
       mock.flush(dummyUsers);
@@ -56,7 +58,7 @@ describe('UserService', () => {
           expect(res).toEqual(dummyUser);
         });
 
-      const mock = httpMock.expectOne(`${USER_BASE_URL}${dummyUserId}`);
+      const mock = httpMock.expectOne(`${TEST_USER_API_URL}${dummyUserId}`);
       expect(mock.request.method).toBe('GET');
 
       mock.flush(dummyUser);
@@ -71,7 +73,7 @@ describe('UserService', () => {
           expect(res).toEqual('OK');
         });
 
-      const mock = httpMock.expectOne(`${USER_BASE_URL}${dummyUserId}`);
+      const mock = httpMock.expectOne(`${TEST_USER_API_URL}${dummyUserId}`);
       expect(mock.request.method).toBe('DELETE');
 
       mock.flush('OK');
@@ -93,7 +95,7 @@ describe('UserService', () => {
           expect(res).toEqual(updatedUser);
         });
 
-      const mock = httpMock.expectOne(`${USER_BASE_URL}${updatedUser.id}`);
+      const mock = httpMock.expectOne(`${TEST_USER_API_URL}${updatedUser.id}`);
       expect(mock.request.method).toBe('PATCH');
 
       mock.flush(updatedUser);

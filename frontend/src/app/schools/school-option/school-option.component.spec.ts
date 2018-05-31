@@ -1,6 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { SchoolOptionComponent } from './school-option.component';
+import { MaterialModule } from '../../ng-material/material.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 describe('SchoolOptionComponent', () => {
   let component: SchoolOptionComponent;
@@ -8,7 +10,11 @@ describe('SchoolOptionComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ SchoolOptionComponent ]
+      declarations: [ SchoolOptionComponent ],
+      imports: [
+        BrowserAnimationsModule,
+        MaterialModule
+      ],
     })
     .compileComponents();
   }));

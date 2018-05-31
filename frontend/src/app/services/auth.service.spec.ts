@@ -4,6 +4,8 @@ import { TestBed, inject } from '@angular/core/testing';
 
 import { AuthService } from './auth.service';
 import { User } from '../models/user.model';
+import { environment } from './../../environments/environment';
+
 
 describe('AuthService', () => {
   let service: AuthService;
@@ -12,6 +14,7 @@ describe('AuthService', () => {
   let dummyForm: SessionForm;
   let dummyLogin: SessionForm;
   let store = {};
+  const USER_TEST_URL = `${environment.apiHost}/api/users/`;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
@@ -59,7 +62,7 @@ describe('AuthService', () => {
           expect(res).toEqual(dummyUser);
         });
 
-      const mock = httpMock.expectOne('/api/users/');
+      const mock = httpMock.expectOne(USER_TEST_URL);
       expect(mock.request.method).toBe('POST');
 
       mock.flush(dummyUser);
@@ -79,7 +82,7 @@ describe('AuthService', () => {
           expect(res).toEqual(dummyUser);
         });
 
-      const mock = httpMock.expectOne('/api/users/login');
+      const mock = httpMock.expectOne(`${USER_TEST_URL}login`);
       expect(mock.request.method).toBe('POST');
 
       mock.flush(dummyUser);
