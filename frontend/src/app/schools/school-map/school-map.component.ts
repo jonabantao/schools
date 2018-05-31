@@ -13,11 +13,11 @@ export class SchoolMapComponent implements OnInit {
   @Input() schools: any[];
   @Input() policeEvents: PoliceEvents[];
   @Output() boundsChanged = new EventEmitter();
+  @Output() focused = new EventEmitter();
   maxConstraint = 12;
 
   constructor() { }
 
   ngOnInit() {
   }
-
 }

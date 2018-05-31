@@ -18,7 +18,7 @@ export class SchoolsSearchFormComponent {
     private formBuilder: FormBuilder,
   ) {
     this.schoolForm = this.formBuilder.group({
-      schoolCategory: '',
+      schoolCategory: 'public',
       lowerGrade: '',
       upperGrade: '',
     });
