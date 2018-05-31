@@ -32,11 +32,11 @@ export class PoliceService {
     SEPointLng: number,
   ): Observable<PoliceEvents[]> {
     const dateNow = moment().format('YYYY-MM-DDTHH:mm:ss');
-    const dateThreeMonthsBack = moment().subtract(2, 'months').format('YYYY-MM-DDTHH:mm:ss');
+    const dateSixMonthsBack = moment().subtract(6, 'months').format('YYYY-MM-DDTHH:mm:ss');
     const querySelect = '?$select=category, descript, location';
     const queryBounds = `within_box(location, ${NWPointLat}, ${NWPointLng}, ${SEPointLat}, ${SEPointLng})`;
     const queryCategories = `category in (${this.categories.map(category => `'${category}'`)})`;
-    const queryDates = `date between '${dateThreeMonthsBack}' AND '${dateNow}'`;
+    const queryDates = `date between '${dateSixMonthsBack}' AND '${dateNow}'`;
 
     const queryURI = `${POLICE_API_URL}${querySelect}&$where=${queryBounds} AND ${queryCategories} AND ${queryDates}`;
 

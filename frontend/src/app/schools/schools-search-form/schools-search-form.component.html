@@ -5,57 +5,60 @@
         Search Schools
       </mat-panel-title>
     </mat-expansion-panel-header>
-    <h4 class="mat-subheading-1">School Category</h4>
-    <mat-form-field>
-      <mat-label>School Category</mat-label>
-      <mat-radio-group>
-        <mat-radio-button value="public">Public</mat-radio-button>
-        <mat-radio-button value="Independent / Private">Independent / Private</mat-radio-button>
-        <mat-radio-button value="USD Charter School">USD Charter School</mat-radio-button>
-      </mat-radio-group>
-    </mat-form-field>
-    
-    <h4 class="mat-subheading-1">Grade Range</h4>
-    <mat-form-field>
-      <mat-select placeholder="Lower Grade Bound" [(value)]="lowerGrade">
-        <mat-option>None</mat-option>
-        <mat-option value="-2">Preschool</mat-option>
-        <mat-option value="-1">Pre-K</mat-option>
-        <mat-option value="0">Kindergarten</mat-option>
-        <mat-option value="1">1st Grade</mat-option>
-        <mat-option value="2">2nd Grade</mat-option>
-        <mat-option value="3">3rd Grade</mat-option>
-        <mat-option value="4">4th Grade</mat-option>
-        <mat-option value="5">5th Grade</mat-option>
-        <mat-option value="6">6th Grade</mat-option>
-        <mat-option value="7">7th Grade</mat-option>
-        <mat-option value="8">8th Grade</mat-option>
-        <mat-option value="9">9th Grade</mat-option>
-        <mat-option value="10">10th Grade</mat-option>
-        <mat-option value="11">11th Grade</mat-option>
-        <mat-option value="12">12th Grade</mat-option>
-      </mat-select>
-    </mat-form-field>
-    <mat-form-field>
-      <mat-select placeholder="Upper Grade Bound" [(value)]="upperGrade">
-        <mat-option>None</mat-option>
-        <mat-option value="-2">Preschool</mat-option>
-        <mat-option value="-1">Pre-K</mat-option>
-        <mat-option value="0">Kindergarten</mat-option>
-        <mat-option value="1">1st Grade</mat-option>
-        <mat-option value="2">2nd Grade</mat-option>
-        <mat-option value="3">3rd Grade</mat-option>
-        <mat-option value="4">4th Grade</mat-option>
-        <mat-option value="5">5th Grade</mat-option>
-        <mat-option value="6">6th Grade</mat-option>
-        <mat-option value="7">7th Grade</mat-option>
-        <mat-option value="8">8th Grade</mat-option>
-        <mat-option value="9">9th Grade</mat-option>
-        <mat-option value="10">10th Grade</mat-option>
-        <mat-option value="11">11th Grade</mat-option>
-        <mat-option value="12">12th Grade</mat-option>
-      </mat-select>
-    </mat-form-field>
-
+    <form class="school-search-form" [formGroup]="schoolForm" (submit)="formSubmitted.emit(schoolForm.value)">
+      <h4 class="mat-subheading-1">School Category</h4>
+        <mat-radio-group class="school-form-radio" formControlName="schoolCategory">
+          <mat-radio-button value="public" checked="true">Public</mat-radio-button>
+          <mat-radio-button value="Independent / Private">Independent / Private</mat-radio-button>
+          <mat-radio-button value="USD Charter School">USD Charter School</mat-radio-button>
+        </mat-radio-group>
+      
+      <h4 class="mat-subheading-1">Grade Range</h4>
+      <div class="range-field">
+        <mat-form-field>
+          <mat-select placeholder="Lower Grade Bound" formControlName="lowerGrade">
+            <mat-option>None</mat-option>
+            <mat-option value="-2">Preschool</mat-option>
+            <mat-option value="-1">Pre-K</mat-option>
+            <mat-option value="0">Kindergarten</mat-option>
+            <mat-option value="1">1st Grade</mat-option>
+            <mat-option value="2">2nd Grade</mat-option>
+            <mat-option value="3">3rd Grade</mat-option>
+            <mat-option value="4">4th Grade</mat-option>
+            <mat-option value="5">5th Grade</mat-option>
+            <mat-option value="6">6th Grade</mat-option>
+            <mat-option value="7">7th Grade</mat-option>
+            <mat-option value="8">8th Grade</mat-option>
+            <mat-option value="9">9th Grade</mat-option>
+            <mat-option value="10">10th Grade</mat-option>
+            <mat-option value="11">11th Grade</mat-option>
+            <mat-option value="12">12th Grade</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field>
+          <mat-select placeholder="Upper Grade Bound" formControlName="upperGrade">
+            <mat-option>None</mat-option>
+            <mat-option value="-2">Preschool</mat-option>
+            <mat-option value="-1">Pre-K</mat-option>
+            <mat-option value="0">Kindergarten</mat-option>
+            <mat-option value="1">1st Grade</mat-option>
+            <mat-option value="2">2nd Grade</mat-option>
+            <mat-option value="3">3rd Grade</mat-option>
+            <mat-option value="4">4th Grade</mat-option>
+            <mat-option value="5">5th Grade</mat-option>
+            <mat-option value="6">6th Grade</mat-option>
+            <mat-option value="7">7th Grade</mat-option>
+            <mat-option value="8">8th Grade</mat-option>
+            <mat-option value="9">9th Grade</mat-option>
+            <mat-option value="10">10th Grade</mat-option>
+            <mat-option value="11">11th Grade</mat-option>
+            <mat-option value="12">12th Grade</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <mat-card-actions>
+        <button mat-raised-button color="primary">Find Schools</button>
+      </mat-card-actions>
+    </form>
   </mat-expansion-panel>
 </mat-card>

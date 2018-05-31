@@ -8,7 +8,6 @@ import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 export class SchoolOptionComponent implements OnInit {
   title = 'Marker Options';
 
-  @Input() isVisible: boolean;
   @Output() changed = new EventEmitter();
 
   constructor() { }

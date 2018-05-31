@@ -13,7 +13,29 @@ export class SchoolService {
     private http: HttpClient,
   ) { }
 
-  fetchSchools(): Observable<any> {
-    return this.http.get(SCHOOL_API_URL);
+  fetchSchools(category: string, lowerGrade: string, upperGrade: string): Observable<any> {
+    const selectQuery = '?$select= campus_name, campus_address, location_1';
+    let categoryType = '';
+    let lowerGradeQuery = '';
+    let upperGradeQuery = '';
+
+    if (category === 'public') {
+      categoryType = 'like \'USD%25\' and category != \'USD Charter School\'';
+    } else {
+      categoryType = `= '${category}'`;
+    }
+
+    const categoryQuery = `&$where=category ${categoryType}`;
+
+    if (lowerGrade) {
+      lowerGradeQuery = ` AND lower_grade >= ${lowerGrade}`;
+    }
+
+    if (upperGrade) {
+      upperGradeQuery = ` AND upper_grade <= ${upperGrade}`;
+    }
+
+
+    return this.http.get(`${SCHOOL_API_URL}${selectQuery}${categoryQuery}${lowerGradeQuery}${upperGradeQuery}`);
   }
 }

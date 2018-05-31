@@ -3,3 +3,14 @@ mat-card {
   margin: 0;
   margin-top: 20px;
 }
+
+.first-toggle-element {
+  margin-left: 10px;
+}
+
+@media (max-width: 800px) {
+  mat-card {
+    margin-bottom: 20px;
+    min-width: 300px;
+  }
+}

@@ -26,9 +26,11 @@ export class SchoolsComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.schoolService.fetchSchools()
+  }
+
+  searchSchools({ schoolCategory, lowerGrade, upperGrade }): void {
+    this.schoolService.fetchSchools(schoolCategory, lowerGrade, upperGrade)
       .subscribe(schools => {
-        this.showMarkerOptions();
         this.schools = schools;
       });
   }
@@ -55,16 +57,11 @@ export class SchoolsComponent implements OnInit {
     this.policeEvents = null;
   }
 
-  showMarkerOptions(): void {
-    this.hasBegunSearch = true;
-  }
-
-  test(event): void {
+  storeMapBounds(event): void {
     this.NWPointLng = event.b.b;
     this.SEPointLng = event.b.f;
     this.NWPointLat = event.f.f;
     this.SEPointLat = event.f.b;
-    console.log(event);
   }
 
 }

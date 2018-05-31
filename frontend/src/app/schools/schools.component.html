@@ -1,10 +1,10 @@
 <section class="schools-container">
   <div>
-    <app-schools-search-form>
+    <app-schools-search-form
+      (formSubmitted)="searchSchools($event)">
     </app-schools-search-form>
     <app-school-option
-      (changed)="checkPoliceToggle($event)"
-      [isVisible]="hasBegunSearch">
+      (changed)="checkPoliceToggle($event)">
     </app-school-option>
   </div>
     <app-school-map
@@ -13,6 +13,6 @@
     [mapZoom]="zoom"
     [mapLat]="lat"
     [mapLng]="lng"
-    (boundsChanged)="test($event)">
+    (boundsChanged)="storeMapBounds($event)">
   </app-school-map>
 </section>

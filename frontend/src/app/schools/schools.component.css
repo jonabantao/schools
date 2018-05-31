@@ -12,3 +12,14 @@
 .card-title {
   text-align: center;
 }
+
+@media (max-width: 800px) {
+  .schools-container {
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .schools-container > * {
+    width: 95%;
+  }
+}
