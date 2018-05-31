@@ -15,14 +15,14 @@
     </agm-marker>
     <agm-marker *ngFor="let police of policeEvents" [latitude]="police.location.coordinates[1]" [longitude]="police.location.coordinates[0]"
       [iconUrl]="'./assets/icons/caution.png'" class="police-marker">
-      <agm-snazzy-info-window [closeWhenOthersOpen]="true" [showCloseButton]="false">
+      <agm-snazzy-info-window padding="0" maxWidth="800" [closeWhenOthersOpen]="true" [showCloseButton]="false">
         <ng-template>
           <div class="info-window">
-            <p>{{ police.category }}</p>
-            <p>{{ police.descript }}</p>
+            <p class="mat-body-2">{{ police.category }}</p>
+            <p class="mat-body-1">{{ police.descript }}</p>
           </div>
         </ng-template>
       </agm-snazzy-info-window>
     </agm-marker>
   </agm-map>
-</mat-card>
+</mat-card> 

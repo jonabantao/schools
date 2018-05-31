@@ -1,12 +1,12 @@
 import { PoliceEvents } from './../../models/police-events.model';
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-school-map',
   templateUrl: './school-map.component.html',
   styleUrls: ['./school-map.component.css']
 })
-export class SchoolMapComponent implements OnInit {
+export class SchoolMapComponent {
   @Input() mapZoom: number;
   @Input() mapLat: number;
   @Input() mapLng: number;
@@ -14,10 +14,8 @@ export class SchoolMapComponent implements OnInit {
   @Input() policeEvents: PoliceEvents[];
   @Output() boundsChanged = new EventEmitter();
   @Output() focused = new EventEmitter();
+  @Output() zoomChanged = new EventEmitter();
   maxConstraint = 12;
 
-  constructor() { }
-
-  ngOnInit() {
-  }
+  constructor() {}
 }
