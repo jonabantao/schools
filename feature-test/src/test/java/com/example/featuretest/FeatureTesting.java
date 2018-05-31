@@ -20,9 +20,7 @@ import static com.codeborne.selenide.Condition.*;
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.DEFINED_PORT)
 public class FeatureTesting {
     User firstUser;
-    User secondUser;
-    long firstUserId;
-    long secondUserId;
+    User secondUser; d
 
 
     private String encryptPassword(String plainPassword) {
@@ -39,7 +37,7 @@ public class FeatureTesting {
     }
 
     @Before
-    public void setUp() {
+    public void setUp() { w
         userRepository.deleteAll();
 
         firstUser = new User(
@@ -56,12 +54,6 @@ public class FeatureTesting {
                 encryptPassword("testing"),
                 "testeruser2@examail.com"
         );
-
-        firstUser = userRepository.save(firstUser);
-        secondUser = userRepository.save(secondUser);
-
-        firstUserId = firstUser.getId();
-        secondUserId = secondUser.getId();
 
         open("http://localhost:4200");
     }
