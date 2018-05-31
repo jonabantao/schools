@@ -5,6 +5,8 @@ import * as moment from 'moment';
 
 import { PoliceEvents } from './../models/police-events.model';
 
+const POLICE_API_URL = 'https://data.sfgov.org/resource/cuks-n6tp.json';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -31,13 +33,12 @@ export class PoliceService {
   ): Observable<PoliceEvents[]> {
     const dateNow = moment().format('YYYY-MM-DDTHH:mm:ss');
     const dateThreeMonthsBack = moment().subtract(2, 'months').format('YYYY-MM-DDTHH:mm:ss');
-    const URI = 'https://data.sfgov.org/resource/cuks-n6tp.json';
     const querySelect = '?$select=category, descript, location';
     const queryBounds = `within_box(location, ${NWPointLat}, ${NWPointLng}, ${SEPointLat}, ${SEPointLng})`;
     const queryCategories = `category in (${this.categories.map(category => `'${category}'`)})`;
     const queryDates = `date between '${dateThreeMonthsBack}' AND '${dateNow}'`;
 
-    const queryURI = `${URI}${querySelect}&$where=${queryBounds} AND ${queryCategories} AND ${queryDates}`;
+    const queryURI = `${POLICE_API_URL}${querySelect}&$where=${queryBounds} AND ${queryCategories} AND ${queryDates}`;
 
     return this.http.get<PoliceEvents[]>(queryURI);
   }

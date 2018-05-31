@@ -5,10 +5,19 @@
         Search Schools
       </mat-panel-title>
     </mat-expansion-panel-header>
+    <h4 class="mat-subheading-1">School Category</h4>
+    <mat-form-field>
+      <mat-label>School Category</mat-label>
+      <mat-radio-group>
+        <mat-radio-button value="public">Public</mat-radio-button>
+        <mat-radio-button value="Independent / Private">Independent / Private</mat-radio-button>
+        <mat-radio-button value="USD Charter School">USD Charter School</mat-radio-button>
+      </mat-radio-group>
+    </mat-form-field>
+    
     <h4 class="mat-subheading-1">Grade Range</h4>
     <mat-form-field>
-      <mat-label>Lower Grade</mat-label>
-      <mat-select [(value)]="lowerGrade">
+      <mat-select placeholder="Lower Grade Bound" [(value)]="lowerGrade">
         <mat-option>None</mat-option>
         <mat-option value="-2">Preschool</mat-option>
         <mat-option value="-1">Pre-K</mat-option>
@@ -28,8 +37,7 @@
       </mat-select>
     </mat-form-field>
     <mat-form-field>
-      <mat-label>Upper Grade</mat-label>
-      <mat-select [(value)]="upperGrade">
+      <mat-select placeholder="Upper Grade Bound" [(value)]="upperGrade">
         <mat-option>None</mat-option>
         <mat-option value="-2">Preschool</mat-option>
         <mat-option value="-1">Pre-K</mat-option>
