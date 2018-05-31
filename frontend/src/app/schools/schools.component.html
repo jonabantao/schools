@@ -1,11 +1,13 @@
 <section class="schools-container">
-  <app-schools-search-form>
-  </app-schools-search-form>
-  <app-school-option
-    (changed)="checkPoliceToggle($event)"
-    [isVisible]="hasBegunSearch">
-  </app-school-option>
-  <app-school-map
+  <div>
+    <app-schools-search-form>
+    </app-schools-search-form>
+    <app-school-option
+      (changed)="checkPoliceToggle($event)"
+      [isVisible]="hasBegunSearch">
+    </app-school-option>
+  </div>
+    <app-school-map
     [schools]="schools"
     [policeEvents]="policeEvents"
     [mapZoom]="zoom"
