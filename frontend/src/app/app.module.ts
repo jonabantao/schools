@@ -30,6 +30,7 @@ import { LoginComponent } from './auth/login/login.component';
 import { SignupComponent } from './auth/signup/signup.component';
 import { SchoolsSearchFormComponent } from './schools/schools-search-form/schools-search-form.component';
 import { SchoolMapComponent } from './schools/school-map/school-map.component';
+import { SchoolOptionComponent } from './schools/school-option/school-option.component';
 
 @NgModule({
   declarations: [
@@ -43,6 +44,7 @@ import { SchoolMapComponent } from './schools/school-map/school-map.component';
     UsersDetailComponent,
     SchoolsSearchFormComponent,
     SchoolMapComponent,
+    SchoolOptionComponent,
   ],
   imports: [
     BrowserModule,

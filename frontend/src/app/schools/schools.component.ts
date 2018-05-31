@@ -12,6 +12,7 @@ export class SchoolsComponent implements OnInit {
   zoom = 12.4;
   lat = 37.773972;
   lng = -122.451297;
+  hasBegunSearch = false;
   NWPointLng: number;
   SEPointLng: number;
   NWPointLat: number;
@@ -26,7 +27,10 @@ export class SchoolsComponent implements OnInit {
 
   ngOnInit() {
     this.schoolService.fetchSchools()
-      .subscribe(schools => this.schools = schools);
+      .subscribe(schools => {
+        this.showMarkerOptions();
+        this.schools = schools;
+      });
   }
 
   checkPoliceToggle(toggleState): void {
@@ -49,6 +53,10 @@ export class SchoolsComponent implements OnInit {
 
   clearPoliceActivity(): void {
     this.policeEvents = null;
+  }
+
+  showMarkerOptions(): void {
+    this.hasBegunSearch = true;
   }
 
   test(event): void {

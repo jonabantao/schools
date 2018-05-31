@@ -2,8 +2,9 @@
   <mat-expansion-panel>
     <mat-expansion-panel-header>
       <mat-panel-title>
-        Search Schools
+       {{ title }}
       </mat-panel-title>
     </mat-expansion-panel-header>
+    <mat-slide-toggle (change)="changed.emit($event)">Toggle Police Activity</mat-slide-toggle>
   </mat-expansion-panel>
 </mat-card>

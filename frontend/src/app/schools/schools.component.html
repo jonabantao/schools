@@ -1,7 +1,10 @@
 <section class="schools-container">
-  <app-schools-search-form
-    (changed)="checkPoliceToggle($event)">
+  <app-schools-search-form>
   </app-schools-search-form>
+  <app-school-option
+    (changed)="checkPoliceToggle($event)"
+    [isVisible]="hasBegunSearch">
+  </app-school-option>
   <app-school-map
     [schools]="schools"
     [policeEvents]="policeEvents"
