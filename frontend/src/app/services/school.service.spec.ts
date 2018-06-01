@@ -36,7 +36,7 @@ describe('SchoolService', () => {
   describe('fetchSchools()', () => {
     it('should construct the proper query', () => {
       const mockQuery = 'https://data.sfgov.org/resource/mmsr-vumy.json?$select= ' +
-      'campus_name as campusName, campus_address as campusAddress, location_1' +
+      'campus_name as campusName, campus_address as campusAddress, grade_range as gradeRange, location_1' +
       '&$where=category = \'USD Charter School\' AND lower_grade >= -2';
 
       service.fetchSchools('USD Charter School', '-2')

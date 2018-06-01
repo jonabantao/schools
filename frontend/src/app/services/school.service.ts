@@ -14,7 +14,7 @@ export class SchoolService {
   ) { }
 
   fetchSchools(category: string, lowerGrade: string, upperGrade: string): Observable<any> {
-    const selectQuery = '?$select= campus_name as campusName, campus_address as campusAddress, location_1';
+    const selectQuery = '?$select= campus_name as campusName, campus_address as campusAddress, grade_range as gradeRange, location_1';
     let categoryType = '';
     let lowerGradeQuery = '';
     let upperGradeQuery = '';
