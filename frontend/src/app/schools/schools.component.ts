@@ -33,7 +33,7 @@ export class SchoolsComponent implements OnInit {
 
   ngOnInit() {
     this.zoomSubject.pipe(
-      debounceTime(500),
+      debounceTime(2000),
       distinctUntilChanged()
     ).subscribe((zoomLvl: number) => this.zoom = zoomLvl);
 
