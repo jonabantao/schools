@@ -1,15 +1,9 @@
 .landing-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin-top: 3%;
-}
-
-.landing-container > * {
-  width: 30%;
-}
-
-.card-title {
-  text-align: center;
+  margin: 0;
+  padding: 0;
+  background-image: url('../../assets/images/landingbg.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  height: 94vh;
 }

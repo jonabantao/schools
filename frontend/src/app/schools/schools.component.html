@@ -1,5 +1,5 @@
 <section class="schools-container">
-  <div>
+  <div class="search-container">
     <app-schools-search-form
       (formSubmitted)="searchSchools($event)">
     </app-schools-search-form>
@@ -8,6 +8,7 @@
     </app-school-option>
   </div>
     <app-school-map
+    class="map-container"
     [schools]="schools"
     [policeEvents]="policeEvents"
     [mapZoom]="zoom"

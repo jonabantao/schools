@@ -5,8 +5,12 @@
   margin-top: 3%;
 }
 
-.schools-container > * {
-  width: 45%;
+.search-container {
+  width: 40%;
+}
+
+.map-container {
+  width: 55%;
 }
 
 .card-title {
