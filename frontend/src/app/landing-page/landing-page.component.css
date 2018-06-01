@@ -1,9 +1,15 @@
 .landing-container {
   margin: 0;
   padding: 0;
-  background-image: url('../../assets/images/landingbg.jpg');
+  background: linear-gradient( rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3) ), url('../../assets/images/landingbg.jpg');
   background-repeat: no-repeat;
-  background-attachment: fixed;
   background-position: center;
   height: 94vh;
+  text-align: center;
+}
+
+.hero-title {
+  padding-top: 200px;
+  text-shadow: 2em;
+  color: whitesmoke;
 }

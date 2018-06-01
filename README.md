@@ -1,7 +1,11 @@
-# User Portal
-The current version is a simple app that allows a user (admin status to be included
-later) to edit other users or delete them. Only form of authentication at the moment
-are passwords being hash and salted through BCrypt.
+# School Search
+**San Francisco School Search** utilizes [SF Open Data's](https://datasf.org/opendata/) API to locate all schools Grade 12 and under and mark them
+on Google Maps. This app was primary created to allow a user to see the safety of the neighborhood in proximity of the school. Currently, once logged
+on, a user is able to search school by category, constrain the grade range of schools, and see all police activity that occured within the last
+three months in the Google Map bounds.
+
+## Live Link
+[School App Hosted on Amazon's S3](http://seca-school-app.s3-website-us-west-2.amazonaws.com)
 
 ## How to Run
 Clone the repository.
@@ -32,7 +36,7 @@ npm test
 Feature tests are located in the `/feature-test` folder and are in the `FeatureTesting.java` file located in the `test` folder.
 
 ## User Stories
-Trello was used to track user stories: [Trello Board](https://trello.com/b/P2J6P3D0/housing)
+Trello was used to track user stories: [Trello Board](https://trello.com/b/P2J6P3D0/schools)
 
 ## Proposal
 Mock proposal for this project can be found [here](docs/proposal.pdf).
