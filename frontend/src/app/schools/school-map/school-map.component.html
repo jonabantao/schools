@@ -1,6 +1,6 @@
 <mat-card class="map-container">
-  <agm-map [zoom]="mapZoom" [disableDefaultUI]="true" [latitude]="mapLat" [longitude]="mapLng" [minZoom]="maxConstraint"
-    [clickableIcons]="false" (boundsChange)="boundsChanged.emit($event)">
+  <agm-map (zoomChange)="zoomChanged.emit($event)" (centerChange)="centerChanged.emit($event)" [zoom]="mapZoom" [disableDefaultUI]="true"
+    [latitude]="mapLat" [longitude]="mapLng" [minZoom]="maxConstraint" [clickableIcons]="false" (boundsChange)="boundsChanged.emit($event)">
     <agm-marker *ngFor="let school of schools" [latitude]="school.location_1.coordinates[1]" [longitude]="school.location_1.coordinates[0]"
       [iconUrl]="'./assets/icons/school.png'">
       <agm-snazzy-info-window class="marker-window" padding="0" maxWidth="800" [closeWhenOthersOpen]="true" [showCloseButton]="false">
@@ -25,4 +25,4 @@
       </agm-snazzy-info-window>
     </agm-marker>
   </agm-map>
-</mat-card> 
+</mat-card>
