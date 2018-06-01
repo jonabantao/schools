@@ -64,4 +64,21 @@ export class SchoolsComponent implements OnInit {
     this.SEPointLat = event.f.b;
   }
 
+  setLat(lat: number): void {
+    this.lat = lat;
+  }
+
+  setLng(lng: number): void {
+    this.lng = lng;
+  }
+
+  zoomIn(): void {
+    this.zoom = 15;
+  }
+
+  focusOnSchool({ lat, lng }): void {
+    this.setLat(lat);
+    this.setLng(lng);
+    this.zoomIn();
+  }
 }

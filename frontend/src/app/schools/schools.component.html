@@ -13,6 +13,7 @@
     [mapZoom]="zoom"
     [mapLat]="lat"
     [mapLng]="lng"
-    (boundsChanged)="storeMapBounds($event)">
+    (boundsChanged)="storeMapBounds($event)"
+    (focused)="focusOnSchool($event)">
   </app-school-map>
 </section>

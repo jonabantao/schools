@@ -3,21 +3,26 @@
     [clickableIcons]="false" (boundsChange)="boundsChanged.emit($event)">
     <agm-marker *ngFor="let school of schools" [latitude]="school.location_1.coordinates[1]" [longitude]="school.location_1.coordinates[0]"
       [iconUrl]="'./assets/icons/school.png'">
-      <agm-snazzy-info-window [maxWidth]="600" [closeWhenOthersOpen]="true">
+      <agm-snazzy-info-window class="marker-window" padding="0" maxWidth="800" [closeWhenOthersOpen]="true" [showCloseButton]="false">
         <ng-template>
-          <h5>{{ school.campus_name }}</h5>
-          <h6>{{ school.campus_address}}</h6>
+          <section class="info-window">
+            <p class="mat-body-2">{{ school.campusName }}</p>
+            <p class="mat-body-1">{{ school.campusAddress }}</p>
+            <button mat-raised-button color="primary" (click)="focused.emit({ lat: school.location_1.coordinates[1], lng: school.location_1.coordinates[0] })">Focus</button>
+          </section>
         </ng-template>
       </agm-snazzy-info-window>
     </agm-marker>
     <agm-marker *ngFor="let police of policeEvents" [latitude]="police.location.coordinates[1]" [longitude]="police.location.coordinates[0]"
       [iconUrl]="'./assets/icons/caution.png'" class="police-marker">
-      <agm-snazzy-info-window [maxWidth]="600" [closeWhenOthersOpen]="true">
+      <agm-snazzy-info-window padding="0" maxWidth="800" [closeWhenOthersOpen]="true" [showCloseButton]="false">
         <ng-template>
-          <h5>{{ police.category }}</h5>
-          <h6>{{ police.descript }}</h6>
+          <div class="info-window">
+            <p class="mat-body-2">{{ police.category }}</p>
+            <p class="mat-body-1">{{ police.descript }}</p>
+          </div>
         </ng-template>
       </agm-snazzy-info-window>
     </agm-marker>
   </agm-map>
-</mat-card>
+</mat-card> 
