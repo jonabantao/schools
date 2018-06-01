@@ -40,3 +40,13 @@ Trello was used to track user stories: [Trello Board](https://trello.com/b/P2J6P
 
 ## Proposal
 Mock proposal for this project can be found [here](docs/proposal.pdf).
+
+## Technologies Used
+* Angular v6
+* Angular Material
+* Google Maps
+* San Francisco Open Data
+* Spring Boot
+* Netflix Eureka (Service Registry)
+* Netflix Zuul (API Gateway)
+* Docker
