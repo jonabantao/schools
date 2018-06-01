@@ -2,7 +2,7 @@
   <agm-map (zoomChange)="zoomChanged.emit($event)" (centerChange)="centerChanged.emit($event)" [zoom]="mapZoom" [disableDefaultUI]="true"
     [latitude]="mapLat" [longitude]="mapLng" [minZoom]="maxConstraint" [clickableIcons]="false" (boundsChange)="boundsChanged.emit($event)">
     <agm-marker *ngFor="let school of schools" [latitude]="school.location_1.coordinates[1]" [longitude]="school.location_1.coordinates[0]"
-      [iconUrl]="'./assets/icons/school.png'">
+      [iconUrl]="'./assets/icons/school.png'" data-school-marker>
       <agm-snazzy-info-window class="marker-window" padding="0" maxHeight="300" maxWidth="800" [closeWhenOthersOpen]="true" [showCloseButton]="false">
         <ng-template>
           <section class="info-window">

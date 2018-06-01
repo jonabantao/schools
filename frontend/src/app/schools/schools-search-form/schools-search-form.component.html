@@ -1,5 +1,5 @@
 <mat-card>
-  <mat-expansion-panel>
+  <mat-expansion-panel id="school-search-expansion">
     <mat-expansion-panel-header>
       <mat-panel-title id="schools-title">
         Search Schools
@@ -8,9 +8,9 @@
     <form class="school-search-form" [formGroup]="schoolForm" (submit)="formSubmitted.emit(schoolForm.value)">
       <h4 class="mat-subheading-1">School Category</h4>
         <mat-radio-group class="school-form-radio" formControlName="schoolCategory">
-          <mat-radio-button value="public" checked="true">Public</mat-radio-button>
-          <mat-radio-button value="Independent / Private">Independent / Private</mat-radio-button>
-          <mat-radio-button value="USD Charter School">USD Charter School</mat-radio-button>
+          <mat-radio-button id="public-cat" value="public" checked="true">Public</mat-radio-button>
+          <mat-radio-button id="independent-cat" value="Independent / Private">Independent / Private</mat-radio-button>
+          <mat-radio-button id="charter-cat" value="USD Charter School">USD Charter School</mat-radio-button>
         </mat-radio-group>
       
       <h4 class="mat-subheading-1">Grade Range</h4>
@@ -57,7 +57,7 @@
         </mat-form-field>
       </div>
       <mat-card-actions>
-        <button mat-raised-button color="accent">Find Schools</button>
+        <button id="submit-school-search" mat-raised-button color="accent">Find Schools</button>
       </mat-card-actions>
     </form>
   </mat-expansion-panel>

@@ -20,7 +20,7 @@ import static com.codeborne.selenide.Condition.*;
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.DEFINED_PORT)
 public class FeatureTesting {
     User firstUser;
-    User secondUser; d
+    User secondUser;
 
 
     private String encryptPassword(String plainPassword) {
@@ -37,7 +37,7 @@ public class FeatureTesting {
     }
 
     @Before
-    public void setUp() { w
+    public void setUp() {
         userRepository.deleteAll();
 
         firstUser = new User(
@@ -54,6 +54,9 @@ public class FeatureTesting {
                 encryptPassword("testing"),
                 "testeruser2@examail.com"
         );
+
+        firstUser = userRepository.save(firstUser);
+        secondUser = userRepository.save(secondUser);
 
         open("http://localhost:4200");
     }
@@ -93,6 +96,31 @@ public class FeatureTesting {
         $("#login-form-submit").click();
 
         $("#schools-title").should(appear);
+
+        $("#nav-menu").click();
+        $("#nav-logout").click();
+    }
+
+    @Test
+    public void shouldSuccessfullySubmitSchoolForm() throws Exception {
+        $("#nav-login").click();
+
+        $("#login-form").should(appear);
+
+        $("#login-form-username").sendKeys("testeruser1");
+        $("#login-form-password").sendKeys("tester");
+        $("#login-form-submit").click();
+
+
+        $("#schools-title").should(appear);
+
+        $("#school-search-expansion").click();
+
+        $("#submit-school-search").click();
+
+        Thread.sleep(5000);
+
+        $$("[data-school-marker]").shouldHaveSize(125);
 
         $("#nav-menu").click();
         $("#nav-logout").click();
