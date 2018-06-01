@@ -106,7 +106,7 @@ export class SchoolsComponent implements OnInit {
   }
 
   zoomIn(): void {
-    this.zoom = 15;
+    this.zoom = 16;
   }
 
   focusOnSchool({ lat, lng }): void {
