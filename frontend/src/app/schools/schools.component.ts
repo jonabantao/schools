@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { SchoolService } from '../services/school.service';
 import { PoliceService } from '../services/police.service';
 import { PoliceEvents } from '../models/police-events.model';
+import { Subject } from 'rxjs';
+import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
+import { ClassGetter } from '@angular/compiler/src/output/output_ast';
 
 @Component({
   selector: 'app-schools',
@@ -9,7 +12,7 @@ import { PoliceEvents } from '../models/police-events.model';
   styleUrls: ['./schools.component.css']
 })
 export class SchoolsComponent implements OnInit {
-  zoom = 12.4;
+  zoom = 12;
   lat = 37.773972;
   lng = -122.451297;
   hasBegunSearch = false;
@@ -19,6 +22,9 @@ export class SchoolsComponent implements OnInit {
   SEPointLat: number;
   schools: any;
   policeEvents: PoliceEvents[];
+  zoomSubject = new Subject();
+  centerSubject = new Subject();
+  boundSubject = new Subject();
 
   constructor(
     private schoolService: SchoolService,
@@ -26,6 +32,28 @@ export class SchoolsComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.zoomSubject.pipe(
+      debounceTime(500),
+      distinctUntilChanged()
+    ).subscribe((zoomLvl: number) => this.zoom = zoomLvl);
+
+    this.centerSubject.pipe(
+      debounceTime(500),
+      distinctUntilChanged()
+    ).subscribe(({ lat, lng }) => {
+      this.lat = lat;
+      this.lng = lng;
+     });
+
+    this.boundSubject.pipe(
+      debounceTime(500),
+      distinctUntilChanged()
+    ).subscribe((event: any) => {
+      this.NWPointLng = event.b.b;
+      this.SEPointLng = event.b.f;
+      this.NWPointLat = event.f.f;
+      this.SEPointLat = event.f.b;
+    });
   }
 
   searchSchools({ schoolCategory, lowerGrade, upperGrade }): void {
@@ -58,10 +86,7 @@ export class SchoolsComponent implements OnInit {
   }
 
   storeMapBounds(event): void {
-    this.NWPointLng = event.b.b;
-    this.SEPointLng = event.b.f;
-    this.NWPointLat = event.f.f;
-    this.SEPointLat = event.f.b;
+    this.boundSubject.next(event);
   }
 
   setLat(lat: number): void {
@@ -70,6 +95,14 @@ export class SchoolsComponent implements OnInit {
 
   setLng(lng: number): void {
     this.lng = lng;
+  }
+
+  setZoom(zoom: number): void {
+    this.zoomSubject.next(zoom);
+  }
+
+  setCenter(coords: any): void {
+    this.centerSubject.next(coords);
   }
 
   zoomIn(): void {

@@ -15,7 +15,9 @@ export class SchoolMapComponent {
   @Output() boundsChanged = new EventEmitter();
   @Output() focused = new EventEmitter();
   @Output() zoomChanged = new EventEmitter();
+  @Output() centerChanged = new EventEmitter();
   maxConstraint = 12;
 
   constructor() {}
+
 }
