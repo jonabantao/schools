@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
+import { Subject } from 'rxjs';
+import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
+
 import { SchoolService } from '../services/school.service';
 import { PoliceService } from '../services/police.service';
 import { PoliceEvents } from '../models/police-events.model';
-import { Subject } from 'rxjs';
-import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
-import { ClassGetter } from '@angular/compiler/src/output/output_ast';
+import { School } from '../models/school.model';
 
 @Component({
   selector: 'app-schools',
@@ -20,7 +21,7 @@ export class SchoolsComponent implements OnInit {
   SEPointLng: number;
   NWPointLat: number;
   SEPointLat: number;
-  schools: any;
+  schools: School[];
   policeEvents: PoliceEvents[];
   zoomSubject = new Subject();
   centerSubject = new Subject();

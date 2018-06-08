@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { School } from '../models/school.model';
 
 const SCHOOL_API_URL = 'https://data.sfgov.org/resource/mmsr-vumy.json';
 
@@ -13,7 +14,7 @@ export class SchoolService {
     private http: HttpClient,
   ) { }
 
-  fetchSchools(category: string, lowerGrade: string, upperGrade: string): Observable<any> {
+  fetchSchools(category: string, lowerGrade: string, upperGrade: string): Observable<School[]> {
     const selectQuery = '?$select= campus_name as campusName, campus_address as campusAddress, grade_range as gradeRange, ' +
     'map_label as mapLabel, location_1';
     let categoryType = '';
@@ -37,6 +38,6 @@ export class SchoolService {
     }
 
 
-    return this.http.get(`${SCHOOL_API_URL}${selectQuery}${categoryQuery}${lowerGradeQuery}${upperGradeQuery}`);
+    return this.http.get<School[]>(`${SCHOOL_API_URL}${selectQuery}${categoryQuery}${lowerGradeQuery}${upperGradeQuery}`);
   }
 }
