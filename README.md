@@ -5,7 +5,7 @@ on, a user is able to search school by category, constrain the grade range of sc
 three months in the Google Map bounds.
 
 ## Live Link
-[School App Hosted on Amazon's S3](http://seca-school-app.s3-website-us-west-2.amazonaws.com)
+~~School App Hosted on Amazon's S3~~(EC2 backend taken down for server costs)
 
 ## How to Run
 Clone the repository.
