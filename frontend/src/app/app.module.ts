@@ -7,8 +7,6 @@ import { LayoutModule } from '@angular/cdk/layout';
 import { AgmCoreModule } from '@agm/core';
 import { AgmSnazzyInfoWindowModule } from '@agm/snazzy-info-window';
 
-import { GOOGLE_MAPS_URL } from '../conf/googlemaps';
-
 import { AuthService } from './services/auth.service';
 import { SchoolService } from './services/school.service';
 import { UserService } from './services/user.service';
@@ -56,7 +54,7 @@ import { SchoolOptionComponent } from './schools/school-option/school-option.com
     AuthModule,
     LayoutModule,
     MaterialModule,
-    AgmCoreModule.forRoot({ apiKey: GOOGLE_MAPS_URL }),
+    AgmCoreModule.forRoot({ apiKey: 'AIzaSyAuojjGFZ0vU0wYm067YgpNwyNbtcp6PHg' }),
     AgmSnazzyInfoWindowModule,
   ],
   providers: [
