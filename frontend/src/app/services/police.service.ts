@@ -5,7 +5,7 @@ import * as moment from 'moment';
 
 import { PoliceEvents } from './../models/police-events.model';
 
-const POLICE_API_URL = 'https://data.sfgov.org/resource/cuks-n6tp.json';
+const POLICE_API_URL = 'https://data.sfgov.org/resource/nwbb-fxkq.json';
 
 @Injectable({
   providedIn: 'root'
@@ -39,6 +39,8 @@ export class PoliceService {
     const queryDates = `date between '${dateThreeMonthsBack}' AND '${dateNow}'`;
 
     const queryURI = `${POLICE_API_URL}${querySelect}&$where=${queryBounds} AND ${queryCategories} AND ${queryDates}`;
+    
+    console.log(queryURI);
 
     return this.http.get<PoliceEvents[]>(queryURI);
   }
