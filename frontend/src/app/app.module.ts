@@ -54,7 +54,7 @@ import { SchoolOptionComponent } from './schools/school-option/school-option.com
     AuthModule,
     LayoutModule,
     MaterialModule,
-    AgmCoreModule.forRoot({ apiKey: 'AIzaSyAuojjGFZ0vU0wYm067YgpNwyNbtcp6PHg' }),
+    AgmCoreModule.forRoot({ apiKey: 'AIzaSyBnM2Lmc8Lxp-DCW8LsYs2k7I24a4XoBuU' }),
     AgmSnazzyInfoWindowModule,
   ],
   providers: [
